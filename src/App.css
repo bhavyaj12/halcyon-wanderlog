@@ -1,5 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@100;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@100;400;700&display=swap");
+@import url(styles/user-feed.css);
+
+:root {
+  --social-primary: #0DCAF0;
+  --social-secondary: #b6effa;
+}
 
 .App {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+}
+
+.social-main-content {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 300px 1fr 250px;
+}
+
+.nav-link.link-dark:hover {
+  background-color: var(--social-secondary);
+}
+p.lead {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1000px) {
+  #nav-side {
+    display: none !important;
+  }
+
+  .social-main-content {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+  }
 }
