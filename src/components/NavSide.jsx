@@ -11,7 +11,7 @@ const NavSide = () => {
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
           <LinkContainer to="/" className="nav-link link-dark" style={{display: "flex"}}>
-            <Nav.Link><HomeIcon style={{marginRight: "1rem"}}/>Home</Nav.Link>
+            <Nav.Link><HomeIcon style={{marginRight: "1rem"}}/>Home Feed</Nav.Link>
           </LinkContainer>
         </li>
         <li>
