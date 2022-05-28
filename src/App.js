@@ -1,11 +1,13 @@
+import { NavigationTop, Footer } from "components";
+import { Routes } from "routes";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+        <NavigationTop />
+        <Routes />
+        <Footer />
     </div>
   );
 }
