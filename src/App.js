@@ -2,7 +2,7 @@ import { NavigationTop, Footer } from "components";
 import { Routes } from "routes";
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
         <NavigationTop />
