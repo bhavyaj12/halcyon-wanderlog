@@ -4,5 +4,6 @@ import NavSide from "./NavSide";
 import AddPost from "./AddPost";
 import PostCard from "./PostCard";
 import SuggestionList from "./SuggestionList";
+import Toast from "./Toast";
 
-export { NavigationTop, Footer, NavSide, AddPost, PostCard, SuggestionList };
+export { NavigationTop, Footer, NavSide, AddPost, PostCard, SuggestionList, Toast };
