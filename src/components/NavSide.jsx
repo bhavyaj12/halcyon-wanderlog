@@ -10,23 +10,23 @@ const NavSide = () => {
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
-          <LinkContainer to="/" className="nav-link link-dark" style={{display: "flex"}}>
-            <Nav.Link><HomeIcon style={{marginRight: "1rem"}}/>Home Feed</Nav.Link>
+          <LinkContainer to="/feed" className="nav-link link-dark d-flex">
+            <Nav.Link><HomeIcon className="mui-icon"/>Home Feed</Nav.Link>
           </LinkContainer>
         </li>
-        <li>
-          <LinkContainer to="/" className="nav-link link-dark" style={{display: "flex"}}>
-            <Nav.Link><ExploreIcon style={{marginRight: "1rem"}}/>Explore</Nav.Link>
+        <li className="nav-item">
+          <LinkContainer to="/" className="nav-link link-dark d-flex">
+            <Nav.Link><ExploreIcon className="mui-icon"/>Explore</Nav.Link>
           </LinkContainer>
         </li>
-        <li>
-          <LinkContainer to="/" className="nav-link link-dark" style={{display: "flex"}}>
-            <Nav.Link><BookmarkOutlinedIcon style={{marginRight: "1rem"}}/>Bookmarks</Nav.Link>
+        <li className="nav-item">
+          <LinkContainer to="/" className="nav-link link-dark d-flex">
+            <Nav.Link><BookmarkOutlinedIcon className="mui-icon"/>Bookmarks</Nav.Link>
           </LinkContainer>
         </li>
-        <li>
-          <LinkContainer to="/" className="nav-link link-dark" style={{display: "flex"}}>
-            <Nav.Link><ThumbUpIcon style={{marginRight: "1rem"}}/>Liked Posts</Nav.Link>
+        <li className="nav-item">
+          <LinkContainer to="/" className="nav-link link-dark d-flex">
+            <Nav.Link><ThumbUpIcon className="mui-icon"/>Liked Posts</Nav.Link>
           </LinkContainer>
         </li>
       </ul>
