@@ -1,4 +1,3 @@
-import { logo } from "assets";
 import {
   Navbar,
   Container,
@@ -9,8 +8,30 @@ import {
   Image,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getAuth, logoutFunc } from "redux-reducers";
+import { useToast } from "custom-hooks";
+import { logo } from "assets";
 
 const NavigationTop = () => {
+  const { isAuth } = useSelector(getAuth);
+  const { showToast } = useToast();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logoutHandler = async () => {
+    try {
+      const response = await dispatch(logoutFunc());
+      if (response) {
+        showToast("success", "Logged out successfully.");
+        navigate("/");
+      }
+    } catch (error) {
+      showToast("error", "Logout failed.");
+    }
+  };
+
   return (
     <Navbar
       sticky="top"
@@ -18,10 +39,10 @@ const NavigationTop = () => {
       bg="light"
       variant="light"
       expand="lg"
-      style={{ boxShadow: "0px 10px 43px -11px rgba(0,0,0,0.59)" }}
+      className="social-header"
     >
       <Container fluid>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             src={logo}
             height="80"
@@ -33,20 +54,23 @@ const NavigationTop = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <LinkContainer to="/mockman">
-              <Nav.Link>
-                Mockman
-              </Nav.Link>
+              <Nav.Link>Mockman</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/">
-              <Nav.Link>
-                Home
-              </Nav.Link>
+              <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/feed">
-              <Nav.Link>
-                Feed
-              </Nav.Link>
-            </LinkContainer>
+            {isAuth && <LinkContainer to="/feed">
+              <Nav.Link>My Feed</Nav.Link>
+            </LinkContainer>}
+            {isAuth ? (
+              <Button variant="danger" onClick={logoutHandler}>
+                Logout
+              </Button>
+            ) : (
+              <LinkContainer to="/login">
+                <Nav.Link>Login</Nav.Link>
+              </LinkContainer>
+            )}
           </Nav>
           <Form className="d-flex">
             <FormControl
@@ -57,13 +81,15 @@ const NavigationTop = () => {
             />
             <Button variant="outline-info">Search</Button>
           </Form>
-          <Image
-            src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
-            roundedCircle
-            width={30}
-            height={30}
-            className="mx-3 my-2 img-fluid"
-          />
+          {isAuth && (
+            <Image
+              src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
+              roundedCircle
+              width={30}
+              height={30}
+              className="mx-3 my-2 img-fluid"
+            />
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
