@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getAuth, logoutFunc } from "redux-reducers";
 import { useToast } from "custom-hooks";
-import { logo } from "assets";
+import { logo, dummyProfile } from "assets";
 
 const NavigationTop = () => {
   const { isAuth } = useSelector(getAuth);
@@ -59,9 +59,11 @@ const NavigationTop = () => {
             <LinkContainer to="/">
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            {isAuth && <LinkContainer to="/feed">
-              <Nav.Link>My Feed</Nav.Link>
-            </LinkContainer>}
+            {isAuth && (
+              <LinkContainer to="/feed">
+                <Nav.Link>My Feed</Nav.Link>
+              </LinkContainer>
+            )}
             {isAuth ? (
               <Button variant="danger" onClick={logoutHandler}>
                 Logout
@@ -83,7 +85,8 @@ const NavigationTop = () => {
           </Form>
           {isAuth && (
             <Image
-              src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
+              alt="user profile image"
+              src={dummyProfile}
               roundedCircle
               width={30}
               height={30}

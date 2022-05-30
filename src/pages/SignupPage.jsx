@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { signupUser } from "redux-reducers";
 import { useToast } from "custom-hooks";
-import { VisibilityIcon, VisibilityOffIcon } from "assets";
+import { VisibilityIcon, VisibilityOffIcon, signupImg } from "assets";
 
 const SignupPage = () => {
   const dispatch = useDispatch();
@@ -210,7 +210,7 @@ const SignupPage = () => {
             <div className="card1">
               <div className="row px-3 mt-4 mb-5">
                 <img
-                  src="https://images.unsplash.com/photo-1480057261736-36852db40e50?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                  src={signupImg}
                   className="login-image"
                 />
               </div>
