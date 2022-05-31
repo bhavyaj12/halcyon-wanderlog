@@ -5,12 +5,6 @@
   margin: 1rem;
 }
 
-.post-img-input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .post-footer-icons {
   display: flex;
   justify-content: space-between;
