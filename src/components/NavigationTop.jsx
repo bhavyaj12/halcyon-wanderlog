@@ -20,9 +20,9 @@ const NavigationTop = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logoutHandler = async () => {
+  const logoutHandler = () => {
     try {
-      const response = await dispatch(logoutFunc());
+      const response = dispatch(logoutFunc());
       if (response) {
         showToast("success", "Logged out successfully.");
         navigate("/");

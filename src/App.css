@@ -34,7 +34,6 @@ p.lead {
 
 .flex-row-centre {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -42,7 +41,6 @@ p.lead {
 
 .flex-row-spacebtw {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
