@@ -56,6 +56,8 @@ const LoginPage = () => {
                 <img
                   src={loginImg}
                   className="login-image"
+                  alt="image of map and camera"
+                  loading="lazy"
                 />
               </div>  
             </div>
