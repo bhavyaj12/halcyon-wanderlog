@@ -1,7 +1,7 @@
 @import url(styles/main.css);
 
 :root {
-  --social-primary: #0DCAF0;
+  --social-primary: #0dcaf0;
   --social-secondary: #b6effa;
   --grey-box-shadow: #757575;
   --grey-light: #e7dfdf;
@@ -50,7 +50,7 @@ p.lead {
 }
 
 .social-header {
-  box-shadow: 0px 10px 43px -11px rgba(0,0,0,0.50);
+  box-shadow: 0px 10px 43px -11px rgba(0, 0, 0, 0.5);
 }
 
 .mui-icon {
@@ -59,6 +59,13 @@ p.lead {
 
 .nav.nav-pills .nav-link.active {
   background-color: var(--social-secondary);
+}
+
+@media screen and (min-width: 1000px) {
+  .nav.nav-pills {
+    position: fixed;
+    width: 15%;
+  }
 }
 
 @media screen and (max-width: 1000px) {
