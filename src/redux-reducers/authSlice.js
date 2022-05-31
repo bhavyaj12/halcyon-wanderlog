@@ -64,8 +64,8 @@ const authSlice = createSlice({
 			})
 			.addCase(signupUser.fulfilled, (state, action) => {
 				state.isAuth = true;
-				state.authToken = action.payload.encodedToken;
-				state.authUser = action.payload.createdUser;
+				state.token = action.payload.encodedToken;
+				state.user = action.payload.createdUser;
 			})
 			.addDefaultCase((state, action) => {})
 	},
