@@ -1,14 +1,15 @@
 import { Image } from "react-bootstrap";
-import { AddPhotoAlternateIcon } from "assets";
+import { AddPhotoAlternateIcon, dummyProfile } from "assets";
 
 const AddPost = () => {
   return (
-    <div className="card bg-light m-4" style={{ width: "60%", minWidth: "20rem" }}>
+    <div className="card bg-light m-4">
       <div className="card-header">What's Happening?</div>
       <div className="card-body">
         <div className="post-img-input">
           <Image
-            src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
+            alt="user profile image"
+            src={dummyProfile}
             roundedCircle
             width={50}
             height={50}

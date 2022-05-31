@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@100;400;700&display=swap");
-@import url(styles/user-feed.css);
+@import url(styles/main.css);
 
 :root {
-  --social-primary: #0DCAF0;
+  --social-primary: #0dcaf0;
   --social-secondary: #b6effa;
+  --grey-box-shadow: #757575;
+  --grey-light: #e7dfdf;
 }
 
 .App {
-  font-family: "Roboto", sans-serif;
   min-height: 100vh;
 }
 
@@ -20,15 +20,55 @@
 .nav-link.link-dark:hover {
   background-color: var(--social-secondary);
 }
+
 p.lead {
   font-weight: 500;
 }
 
-@media screen and (max-width: 1000px) {
-  #nav-side {
-    display: none !important;
-  }
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
 
+.flex-row-centre {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row-spacebtw {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-no-decor {
+  background: transparent;
+  border: none;
+}
+
+.social-header {
+  box-shadow: 0px 10px 43px -11px rgba(0, 0, 0, 0.5);
+}
+
+.mui-icon {
+  margin-right: 1rem;
+}
+
+.nav.nav-pills .nav-link.active {
+  background-color: var(--social-secondary);
+}
+
+@media screen and (min-width: 1000px) {
+  .nav.nav-pills {
+    position: fixed;
+    width: 15%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
   .social-main-content {
     display: grid;
     min-height: 100vh;

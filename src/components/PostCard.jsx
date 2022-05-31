@@ -12,7 +12,7 @@ import {
 
 const PostCard = () => {
   return (
-    <div className="card bg-light m-4" style={{ width: "60%", minWidth: "20rem" }}>
+    <div className="card bg-light m-4">
       <div className="card-body">
         <div className="post-user my-2">
           <Image

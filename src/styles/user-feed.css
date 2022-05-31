@@ -26,19 +26,6 @@
   width: 100%;
 }
 
-.flex-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-row-centre {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
 .post-user {
   display: flex;
   justify-content: flex-start;
@@ -70,4 +57,9 @@
   align-items: center;
   flex-grow: 2;
   width: 100%;
+}
+
+.card.bg-light {
+  width: 60%;
+  min-width: 20rem;
 }
