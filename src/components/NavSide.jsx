@@ -7,7 +7,6 @@ const NavSide = () => {
     <div
       className="d-flex flex-column flex-shrink-0 p-3 bg-light" id="nav-side"
     >
-      <hr />
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
           <LinkContainer to="/feed" className="nav-link link-dark d-flex">
@@ -30,7 +29,6 @@ const NavSide = () => {
           </LinkContainer>
         </li>
       </ul>
-      <hr />
     </div>
   );
 };
