@@ -7,18 +7,29 @@ import {
   Button,
   Image,
 } from "react-bootstrap";
+import { useEffect } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getAuth, logoutFunc } from "redux-reducers";
 import { useToast } from "custom-hooks";
+import { useTheme } from "theme-context";
+import { DarkMode, LightMode } from "@mui/icons-material";
 import { logo, dummyProfile } from "assets";
 
 const NavigationTop = () => {
+  const { theme, setTheme } = useTheme();
   const { isAuth } = useSelector(getAuth);
   const { showToast } = useToast();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const changeTheme = () =>
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+
+  useEffect(() => {
+    localStorage.setItem("wanderlog-theme", theme);
+  }, [theme]);
 
   const logoutHandler = () => {
     try {
@@ -36,8 +47,8 @@ const NavigationTop = () => {
     <Navbar
       sticky="top"
       collapseOnSelect
-      bg="light"
-      variant="light"
+      bg={theme === "light" ? "light" : "dark"}
+      variant={theme === "light" ? "light" : "dark"}
       expand="lg"
       className="social-header"
     >
@@ -83,6 +94,12 @@ const NavigationTop = () => {
             />
             <Button variant="outline-info">Search</Button>
           </Form>
+          <Button
+            variant="outline-secondary mx-2"
+            onClick={changeTheme}
+          >
+            {theme === "dark" ? <DarkMode /> : <LightMode />}
+          </Button>
           {isAuth && (
             <Image
               alt="user profile image"

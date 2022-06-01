@@ -11,9 +11,11 @@ import {
 } from "redux-reducers";
 import { Image } from "react-bootstrap";
 import { useToast } from "custom-hooks";
+import { useTheme } from "theme-context";
 import { AddPhotoAlternateIcon, dummyProfile, CancelIcon } from "assets";
 
 const AddPost = ({ modal }) => {
+  const { theme } = useTheme();
   const { user, token } = useSelector(getAuth);
   const dispatch = useDispatch();
   const { showToast } = useToast();
@@ -75,7 +77,7 @@ const AddPost = ({ modal }) => {
     };
 
     try {
-      const response = await dispatch(editPost({ token, postData, postID: postToEdit._id }));
+      const response = await dispatch(editPost({ token, postData, postId: postToEdit._id }));
       console.log("response from edit post handler", response);
       if (response.error) {
         throw new Error(response.payload);
@@ -105,7 +107,7 @@ const AddPost = ({ modal }) => {
   };
 
   return (
-    <form className="card bg-light m-4">
+    <form className={theme === "light" ? "card add-post-card bg-light m-4" : "card add-post-card bg-dark m-4"}>
       <div className="card-header">What's Happening?</div>
       <div className="card-body">
         <div className="d-flex justify-content-start align-items-center">
@@ -146,7 +148,9 @@ const AddPost = ({ modal }) => {
                 src={addPostImage}
               />
               <button
-                className="btn-no-decor"
+                className={
+                  theme === "light"
+                    ? "btn-no-decor" : "btn-no-decor dark-icon-btn"}
                 onClick={() => setAddPostImage("")}
               >
                 <CancelIcon />

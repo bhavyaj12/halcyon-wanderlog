@@ -10,6 +10,11 @@
   min-height: 100vh;
 }
 
+.App.dark {
+  background-color: grey;
+  color: white;
+}
+
 .social-main-content {
   display: grid;
   min-height: 100vh;
@@ -18,6 +23,10 @@
 
 .nav-link.link-dark:hover {
   background-color: var(--social-secondary);
+}
+
+.nav-link.link-light:hover {
+  background-color: var(--grey-box-shadow);
 }
 
 p.lead {
@@ -72,7 +81,7 @@ p.lead {
   position: fixed;
 }
 
-.edit-post-container .card.bg-light{
+.edit-post-container .card {
   width: 100%;
 }
 
@@ -80,6 +89,10 @@ p.lead {
   margin-left: auto;
   top: -15px;
   right: -18px;
+}
+
+.App.dark .edit-post-container h4 {
+  color: black;
 }
 
 .edit-post-container {
