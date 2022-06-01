@@ -1,10 +1,9 @@
-@import url(styles/main.css);
-
 :root {
   --social-primary: #0dcaf0;
   --social-secondary: #b6effa;
   --grey-box-shadow: #757575;
   --grey-light: #e7dfdf;
+  --modal-bg: rgba(0, 0, 0, .5);
 }
 
 .App {
@@ -61,6 +60,35 @@ p.lead {
   background-color: var(--social-secondary);
 }
 
+.edit-post-modal-wrapper {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-bg);
+  z-index: 2000;
+  position: fixed;
+}
+
+.edit-post-container .card.bg-light{
+  width: 100%;
+}
+
+.edit-post-container button {
+  margin-left: auto;
+  top: -15px;
+  right: -18px;
+}
+
+.edit-post-container {
+  background-color: var(--social-secondary);
+  width: 40%;
+  height: auto;
+}
+
+
 @media screen and (min-width: 1000px) {
   .nav.nav-pills {
     position: fixed;
@@ -74,4 +102,9 @@ p.lead {
     min-height: 100vh;
     grid-template-columns: 1fr;
   }
+  .edit-post-container {
+    width: 90%;
+  }
 }
+
+@import url(styles/main.css);

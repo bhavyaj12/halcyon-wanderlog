@@ -1,4 +1,4 @@
-import { NavigationTop, Footer, Toast } from "components";
+import { NavigationTop, Footer, Toast, PostModal } from "components";
 import { Routes } from "routes";
 import "./App.css";
 
@@ -8,6 +8,7 @@ const App = () => {
         <NavigationTop />
         <Toast />
         <Routes />
+        <PostModal />
         <Footer />
     </div>
   );
