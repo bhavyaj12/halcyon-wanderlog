@@ -11,7 +11,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import ExploreIcon from '@mui/icons-material/Explore';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 
 export { Menu } from "@mui/icons-material";
-export { AddPhotoAlternateIcon, ThumbUpOutlinedIcon, ThumbUpIcon, BookmarkBorderOutlinedIcon, BookmarkOutlinedIcon, ForumOutlinedIcon, ShareOutlinedIcon, DeleteOutlineIcon, EditIcon, HomeIcon, ExploreIcon, VisibilityIcon, VisibilityOffIcon };
+export { AddPhotoAlternateIcon, ThumbUpOutlinedIcon, ThumbUpIcon, BookmarkBorderOutlinedIcon, BookmarkOutlinedIcon, ForumOutlinedIcon, ShareOutlinedIcon, DeleteOutlineIcon, EditIcon, HomeIcon, ExploreIcon, VisibilityIcon, VisibilityOffIcon, CancelIcon };

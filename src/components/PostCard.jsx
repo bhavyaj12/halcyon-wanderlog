@@ -1,4 +1,9 @@
+import dayjs from "dayjs";
+import { useSelector, useDispatch } from "react-redux";
+import { deletePost } from "redux-reducers";
+import { useToast } from "custom-hooks";
 import { Image } from "react-bootstrap";
+import { getAuth } from "redux-reducers";
 import {
   ThumbUpOutlinedIcon,
   ThumbUpIcon,
@@ -10,7 +15,40 @@ import {
   EditIcon,
 } from "assets";
 
-const PostCard = () => {
+const PostCard = ({ post }) => {
+  const { user, token } = useSelector(getAuth);
+  const dispatch = useDispatch();
+  const { showToast } = useToast();
+  const {
+    _id,
+    content,
+    likes,
+    username,
+    firstName,
+    lastName,
+    updatedAt,
+    postImage,
+  } = post;
+  
+  const deletePostHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await dispatch(deletePost({ token, postID: _id }));
+      console.log("response from delete post handler", response);
+      if (response.error) {
+        throw new Error(response.payload);
+      }
+    } catch (error) {
+      if (error.message.includes("404"))
+        showToast(
+          "error",
+          "This username is not registered. Please login again."
+        );
+      else if (error.message.includes("500"))
+        showToast("error", "Can't delete post. Try again later.");
+    }
+  }
+
   return (
     <div className="card bg-light m-4">
       <div className="card-body">
@@ -24,34 +62,41 @@ const PostCard = () => {
           />
           <div className="flex-col">
             <span className="mx-3 name-bold">
-              Bhavya Joshi <span className="post-date mx-3">May 26, 2022</span>
+              {firstName} {lastName}{" "}
+              <span className="post-date mx-3">
+                {dayjs(new Date(updatedAt)).format("HH:mm:ss, ddd, DD/MM/YYYY")}
+              </span>
             </span>
-            <span className="mx-3 user-name">@bhavyajoshi</span>
+            <span className="mx-3 user-name">@{username}</span>
           </div>
-          <div className="post-user-actions flex-row-centre">
-            <button type="button" className="icon-btn flex-row-centre">
-              <EditIcon />
-            </button>
-            <button type="button" className="icon-btn flex-row-centre">
-              <DeleteOutlineIcon />
-            </button>
-          </div>
+          {user.username === username && (
+            <div className="post-user-actions flex-row-centre">
+              <button type="button" className="icon-btn flex-row-centre">
+                <EditIcon />
+              </button>
+              <button type="button" className="icon-btn flex-row-centre" onClick={deletePostHandler}>
+                <DeleteOutlineIcon />
+              </button>
+            </div>
+          )}
         </div>
-        <p className="my-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <p className="my-4">{content}</p>
+        {postImage !== "" && (
+          <div className="d-flex align-items-center justify-content-center">
+            <Image
+              alt="post image"
+              src={postImage}
+              fluid
+              className="mx-3 my-2"
+            />
+          </div>
+        )}
         <div className="post-footer-icons">
           <div className="flex-row-centre">
             <button type="button" className="icon-btn">
               <ThumbUpOutlinedIcon />
             </button>
-            <span className="mx-1">1</span>
+            <span className="mx-1">{likes.likeCount}</span>
           </div>
           <div className="flex-row-centre">
             <button type="button" className="icon-btn">
@@ -63,13 +108,12 @@ const PostCard = () => {
             <button type="button" className="icon-btn">
               <BookmarkBorderOutlinedIcon />
             </button>
-            <span className="mx-1">1</span>
+            <span className="mx-1"></span>
           </div>
           <div className="flex-row-centre">
             <button type="button" className="icon-btn">
               <ShareOutlinedIcon />
             </button>
-            <span className="mx-1">1</span>
           </div>
         </div>
       </div>
