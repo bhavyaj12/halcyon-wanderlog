@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
-import { HomePage, UserHome, LoginPage, SignupPage, InvalidPage } from "pages";
+import { HomePage, UserHome, LoginPage, SignupPage, InvalidPage, BookmarksPage } from "pages";
 import PrivateRoutes from "./PrivateRoutes";
 
 const SiteRoutes = () => {
@@ -13,6 +13,7 @@ const SiteRoutes = () => {
       <Route path="/signup" element={<SignupPage />} />
       <Route element={<PrivateRoutes />}>
         <Route path="/feed" element={<UserHome />} />
+        <Route path="/bookmarks" element={<BookmarksPage />} />
       </Route>
     </Routes>
   );
