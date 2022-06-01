@@ -1,6 +1,12 @@
 import dayjs from "dayjs";
 import { useSelector, useDispatch } from "react-redux";
-import { deletePost } from "redux-reducers";
+import {
+  deletePost,
+  likePost,
+  dislikePost,
+  SET_POST_TO_EDIT,
+  SHOW_MODAL,
+} from "redux-reducers";
 import { useToast } from "custom-hooks";
 import { Image } from "react-bootstrap";
 import { getAuth } from "redux-reducers";
@@ -22,19 +28,26 @@ const PostCard = ({ post }) => {
   const {
     _id,
     content,
-    likes,
+    likes: { likedBy, dislikedBy, likeCount },
     username,
     firstName,
     lastName,
     updatedAt,
     postImage,
   } = post;
-  
+
+  const checkUserLikes = () => {
+    return likedBy.find((userInList) => userInList.username === user.username)
+      ? true
+      : false;
+  };
+
+  console.log(checkUserLikes());
+
   const deletePostHandler = async (e) => {
     e.preventDefault();
     try {
       const response = await dispatch(deletePost({ token, postID: _id }));
-      console.log("response from delete post handler", response);
       if (response.error) {
         throw new Error(response.payload);
       }
@@ -47,7 +60,34 @@ const PostCard = ({ post }) => {
       else if (error.message.includes("500"))
         showToast("error", "Can't delete post. Try again later.");
     }
-  }
+  };
+
+  const editPostHandler = () => {
+    dispatch(SHOW_MODAL(true));
+    console.log("from editPostHandler", post);
+    dispatch(SET_POST_TO_EDIT(post));
+  };
+
+  const likeHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const response = checkUserLikes()
+        ? await dispatch(dislikePost({ token, postID: _id }))
+        : await dispatch(likePost({ token, postID: _id }));
+      console.log("response from like post handler", response);
+      if (response.error) {
+        throw new Error(response.payload);
+      }
+    } catch (error) {
+      if (error.message.includes("404"))
+        showToast(
+          "error",
+          "This username is not registered. Please refresh and login again."
+        );
+      else if (error.message.includes("500"))
+        showToast("error", "Can't edit post likes. Try again later.");
+    }
+  };
 
   return (
     <div className="card bg-light m-4">
@@ -71,10 +111,18 @@ const PostCard = ({ post }) => {
           </div>
           {user.username === username && (
             <div className="post-user-actions flex-row-centre">
-              <button type="button" className="icon-btn flex-row-centre">
+              <button
+                type="button"
+                className="icon-btn flex-row-centre"
+                onClick={editPostHandler}
+              >
                 <EditIcon />
               </button>
-              <button type="button" className="icon-btn flex-row-centre" onClick={deletePostHandler}>
+              <button
+                type="button"
+                className="icon-btn flex-row-centre"
+                onClick={deletePostHandler}
+              >
                 <DeleteOutlineIcon />
               </button>
             </div>
@@ -93,10 +141,16 @@ const PostCard = ({ post }) => {
         )}
         <div className="post-footer-icons">
           <div className="flex-row-centre">
-            <button type="button" className="icon-btn">
-              <ThumbUpOutlinedIcon />
-            </button>
-            <span className="mx-1">{likes.likeCount}</span>
+            {checkUserLikes() ? (
+              <button type="button" className="icon-btn" onClick={likeHandler}>
+                <ThumbUpIcon />
+              </button>
+            ) : (
+              <button type="button" className="icon-btn" onClick={likeHandler}>
+                <ThumbUpOutlinedIcon />
+              </button>
+            )}
+            <span className="mx-1">{likeCount}</span>
           </div>
           <div className="flex-row-centre">
             <button type="button" className="icon-btn">
