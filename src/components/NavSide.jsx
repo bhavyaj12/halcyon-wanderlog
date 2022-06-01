@@ -21,7 +21,14 @@ const NavSide = () => {
     >
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
-          <LinkContainer to="/feed" className="nav-link link-dark d-flex">
+          <LinkContainer
+            to="/feed"
+            className={
+              theme === "light"
+                ? "nav-link link-dark d-flex"
+                : "nav-link link-light d-flex"
+            }
+          >
             <Nav.Link>
               <HomeIcon className="mui-icon" />
               Home Feed

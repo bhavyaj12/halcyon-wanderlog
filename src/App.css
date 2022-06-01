@@ -65,7 +65,7 @@ p.lead {
   margin-right: 1rem;
 }
 
-.nav.nav-pills .nav-link.active {
+.App.light .nav.nav-pills .nav-link.active {
   background-color: var(--social-secondary);
 }
 
