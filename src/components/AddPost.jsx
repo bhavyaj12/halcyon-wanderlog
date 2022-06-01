@@ -127,7 +127,7 @@ const AddPost = ({ modal }) => {
           />
         </div>
         <div className="post-footer-icons">
-          <label htmlFor="add-image">
+          {!isPostEditing && <label htmlFor="add-image">
             <AddPhotoAlternateIcon role="button" />
             <input
               id="add-image"
@@ -136,7 +136,7 @@ const AddPost = ({ modal }) => {
               hidden
               onChange={fileToURL}
             />
-          </label>
+          </label>}
 
           {addPostImage !== "" && (
             <div className="position-relative">
