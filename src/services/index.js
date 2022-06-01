@@ -7,6 +7,9 @@ import {
   editPostService,
   likePostService,
   dislikePostService,
+  fetchBookmarksService,
+  addBookmarkService,
+  deleteBookmarkService,
 } from "./postsServices";
 
 export {
@@ -18,4 +21,7 @@ export {
   editPostService,
   likePostService,
   dislikePostService,
+  fetchBookmarksService,
+  addBookmarkService,
+  deleteBookmarkService,
 };
