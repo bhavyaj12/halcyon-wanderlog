@@ -6,6 +6,9 @@ import {
   editPostService,
   likePostService,
   dislikePostService,
+  fetchBookmarksService,
+  addBookmarkService,
+  deleteBookmarkService,
 } from "services";
 
 export const fetchPosts = createAsyncThunk(
@@ -38,10 +41,10 @@ export const addPost = createAsyncThunk(
 
 export const editPost = createAsyncThunk(
   "posts/editPost",
-  async ({ token, postData, postID }, { rejectWithValue }) => {
-    console.log("from editpost thunk", token, postData, postID);
+  async ({ token, postData, postId }, { rejectWithValue }) => {
+    console.log("from editpost thunk", token, postData, postId);
     try {
-      const { data } = await editPostService(token, postData, postID);
+      const { data } = await editPostService(token, postData, postId);
       const { posts } = data;
       console.log("response From editPost thunk", data);
       return posts;
@@ -53,9 +56,9 @@ export const editPost = createAsyncThunk(
 
 export const deletePost = createAsyncThunk(
   "posts/deletePost",
-  async ({ token, postID }, { rejectWithValue }) => {
+  async ({ token, postId }, { rejectWithValue }) => {
     try {
-      const { data } = await deletePostService(token, postID);
+      const { data } = await deletePostService(token, postId);
       const { posts } = data;
       console.log("From deletePost thunk", data);
       return posts;
@@ -67,9 +70,9 @@ export const deletePost = createAsyncThunk(
 
 export const likePost = createAsyncThunk(
   "posts/likePost",
-  async ({ token, postID }, { rejectWithValue }) => {
+  async ({ token, postId }, { rejectWithValue }) => {
     try {
-      const { data } = await likePostService(token, postID);
+      const { data } = await likePostService(token, postId);
       const { posts } = data;
       return posts;
     } catch (error) {
@@ -80,11 +83,50 @@ export const likePost = createAsyncThunk(
 
 export const dislikePost = createAsyncThunk(
   "posts/dislikePost",
-  async ({ token, postID }, { rejectWithValue }) => {
+  async ({ token, postId }, { rejectWithValue }) => {
     try {
-      const { data } = await dislikePostService(token, postID);
+      const { data } = await dislikePostService(token, postId);
       const { posts } = data;
       return posts;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchBookmarks = createAsyncThunk(
+  "posts/fetchBookmarks",
+  async ({ token }, { rejectWithValue }) => {
+    try {
+      const { data } = await fetchBookmarksService(token);
+      const { bookmarks } = data;
+      return bookmarks;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addBookmark = createAsyncThunk(
+  "posts/addBookmark",
+  async ({ token, postId }, { rejectWithValue }) => {
+    try {
+      const { data } = await addBookmarkService(token, postId);
+      const { bookmarks } = data;
+      return bookmarks;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteBookmark = createAsyncThunk(
+  "posts/deleteBookmark",
+  async ({ token, postId }, { rejectWithValue }) => {
+    try {
+      const { data } = await deleteBookmarkService(token, postId);
+      const { bookmarks } = data;
+      return bookmarks;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -95,6 +137,7 @@ const postsSlice = createSlice({
   name: "posts",
   initialState: {
     posts: [],
+    bookmarks: [],
   },
   reducers: {},
   extraReducers: {
@@ -115,6 +158,15 @@ const postsSlice = createSlice({
     },
     [dislikePost.fulfilled]: (state, action) => {
       state.posts = action.payload;
+    },
+    [fetchBookmarks.fulfilled]: (state, action) => {
+      state.bookmarks = action.payload;
+    },
+    [addBookmark.fulfilled]: (state, action) => {
+      state.bookmarks = action.payload;
+    },
+    [deleteBookmark.fulfilled]: (state, action) => {
+      state.bookmarks = action.payload;
     },
   },
 });
