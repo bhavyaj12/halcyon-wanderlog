@@ -1,17 +1,34 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { addPost, getPost, getAuth } from "redux-reducers";
+import {
+  addPost,
+  getPost,
+  editPost,
+  getAuth,
+  getPostModal,
+  SET_POST_TO_EDIT,
+  HIDE_MODAL,
+} from "redux-reducers";
 import { Image } from "react-bootstrap";
 import { useToast } from "custom-hooks";
 import { AddPhotoAlternateIcon, dummyProfile, CancelIcon } from "assets";
 
-const AddPost = () => {
-  const [addContent, setAddContent] = useState("");
-  const [addPostImage, setAddPostImage] = useState("");
-
+const AddPost = ({ modal }) => {
   const { user, token } = useSelector(getAuth);
   const dispatch = useDispatch();
   const { showToast } = useToast();
+
+  const { postToEdit } = useSelector(getPostModal);
+  console.log("postToEdit", postToEdit);
+
+  const isPostEditing = modal ? true : false;
+
+  const [addContent, setAddContent] = useState(
+    isPostEditing ? postToEdit.content : ""
+  );
+  const [addPostImage, setAddPostImage] = useState(
+    isPostEditing ? postToEdit.postImage : ""
+  );
 
   const addPostHandler = async (e) => {
     e.preventDefault();
@@ -43,7 +60,39 @@ const AddPost = () => {
     setTimeout(() => {
       setAddContent("");
       setAddPostImage("");
-    }, 2000);
+    }, 1500);
+  };
+
+  const editPostHandler = async (e) => {
+    e.preventDefault();
+    const { firstName, lastName } = user;
+
+    const postData = {
+      firstName,
+      lastName,
+      content: addContent,
+      postImage: addPostImage,
+    };
+
+    try {
+      const response = await dispatch(editPost({ token, postData, postID: postToEdit._id }));
+      console.log("response from edit post handler", response);
+      if (response.error) {
+        throw new Error(response.payload);
+      }
+      showToast("success", "Edited post successfully.");
+      dispatch(HIDE_MODAL());
+      setAddContent("");
+      setAddPostImage("");
+    } catch (error) {
+      if (error.message.includes("402"))
+        showToast(
+          "error",
+          "This username is not registered. Please login again."
+        );
+      else if (error.message.includes("500"))
+        showToast("error", "Can't edit post. Try again later.");
+    }
   };
 
   const fileToURL = (event) => {
@@ -56,7 +105,7 @@ const AddPost = () => {
   };
 
   return (
-    <form className="card bg-light m-4" onSubmit={addPostHandler}>
+    <form className="card bg-light m-4">
       <div className="card-header">What's Happening?</div>
       <div className="card-body">
         <div className="d-flex justify-content-start align-items-center">
@@ -106,11 +155,27 @@ const AddPost = () => {
           )}
 
           {addContent.length === 0 ? (
-            <button className="btn btn-secondary btn-sm px-4 me-md-2" disabled>
-              Post
+            isPostEditing ? (
+              <button
+                className="btn btn-secondary btn-sm px-4 me-md-2"
+                disabled
+              >
+                Save Post
+              </button>
+            ) : (
+              <button
+                className="btn btn-secondary btn-sm px-4 me-md-2"
+                disabled
+              >
+                Post
+              </button>
+            )
+          ) : isPostEditing ? (
+            <button onClick={editPostHandler} className="btn btn-info btn-sm px-4 me-md-2">
+              Save Post
             </button>
           ) : (
-            <button type="submit" className="btn btn-info btn-sm px-4 me-md-2">
+            <button onClick={addPostHandler} className="btn btn-info btn-sm px-4 me-md-2">
               Post
             </button>
           )}
