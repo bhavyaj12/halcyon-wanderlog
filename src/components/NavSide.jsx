@@ -1,6 +1,6 @@
 import { Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { ThumbUpIcon, BookmarkOutlinedIcon, HomeIcon, ExploreIcon } from "assets";
+import { AccountCircleIcon, BookmarkOutlinedIcon, HomeIcon, ExploreIcon } from "assets";
 
 const NavSide = () => {
   return (
@@ -25,7 +25,7 @@ const NavSide = () => {
         </li>
         <li className="nav-item">
           <LinkContainer to="/" className="nav-link link-dark d-flex">
-            <Nav.Link><ThumbUpIcon className="mui-icon"/>Liked Posts</Nav.Link>
+            <Nav.Link><AccountCircleIcon className="mui-icon"/>Profile</Nav.Link>
           </LinkContainer>
         </li>
       </ul>
