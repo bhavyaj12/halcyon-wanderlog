@@ -14,6 +14,7 @@ import {
 import { useToast } from "custom-hooks";
 import { Image } from "react-bootstrap";
 import { useTheme } from "theme-context";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ThumbUpOutlinedIcon,
   ThumbUpIcon,
@@ -31,6 +32,7 @@ const PostCard = ({ post }) => {
   const dispatch = useDispatch();
   const { showToast } = useToast();
   const { theme } = useTheme();
+  const navigate = useNavigate();
   const {
     _id,
     content,
@@ -40,6 +42,7 @@ const PostCard = ({ post }) => {
     lastName,
     updatedAt,
     postImage,
+    comments,
   } = post;
 
   const checkUserLikes = () => {
@@ -50,8 +53,6 @@ const PostCard = ({ post }) => {
   const checkUserBookmarks = () => {
     return bookmarks.find((postId) => postId === _id) ? true : false;
   };
-
-  console.log(checkUserBookmarks());
 
   const deletePostHandler = async (e) => {
     e.preventDefault();
@@ -71,9 +72,9 @@ const PostCard = ({ post }) => {
     }
   };
 
-  const editPostHandler = () => {
+  const editPostHandler = (e) => {
+    e.preventDefault();
     dispatch(SHOW_MODAL(true));
-    console.log("from editPostHandler", post);
     dispatch(SET_POST_TO_EDIT(post));
   };
 
@@ -83,7 +84,6 @@ const PostCard = ({ post }) => {
       const response = checkUserLikes()
         ? await dispatch(dislikePost({ token, postId: _id }))
         : await dispatch(likePost({ token, postId: _id }));
-      console.log("response from like post handler", response);
       if (response.error) {
         throw new Error(response.payload);
       }
@@ -104,7 +104,6 @@ const PostCard = ({ post }) => {
       const response = checkUserBookmarks()
         ? await dispatch(deleteBookmark({ token, postId: _id }))
         : await dispatch(addBookmark({ token, postId: _id }));
-      console.log("response from bookmark post handler", response);
       if (response.error) {
         throw new Error(response.payload);
       }
@@ -121,7 +120,7 @@ const PostCard = ({ post }) => {
   };
 
   return (
-    <div
+    <Link style={{ textDecoration: 'none' }} to={`/post/${_id}`}
       className={theme === "light" ? "card post-card bg-light m-4" : "card post-card bg-dark m-4"}
     >
       <div className="card-body">
@@ -252,7 +251,7 @@ const PostCard = ({ post }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
