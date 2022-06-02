@@ -74,6 +74,38 @@ const deleteBookmarkService = (token, postId) => {
   );
 };
 
+const commentOnPostService = (token, postId, commentData) => {
+  return axios.post(
+    `/api/comments/add/${postId}`,
+    {
+      commentData,
+    },
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+const deleteCommentService = (token, postId, commentId) => {
+  return axios.post(
+    `/api/comments/delete/${postId}/${commentId}`,
+    {},
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+const editCommentService = (token, postId, commentId, commentData) => {
+  return axios.post(
+    `/api/comments/edit/${postId}/${commentId}`,
+    { commentData },
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
 export {
   fetchPostsService,
   addPostService,
@@ -83,5 +115,8 @@ export {
   dislikePostService,
   fetchBookmarksService,
   addBookmarkService,
-  deleteBookmarkService
+  deleteBookmarkService,
+  commentOnPostService,
+  deleteCommentService,
+  editCommentService
 };

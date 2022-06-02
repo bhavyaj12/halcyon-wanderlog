@@ -10,6 +10,9 @@ import {
   fetchBookmarksService,
   addBookmarkService,
   deleteBookmarkService,
+  commentOnPostService,
+  deleteCommentService,
+  editCommentService
 } from "./postsServices";
 
 export {
@@ -24,4 +27,7 @@ export {
   fetchBookmarksService,
   addBookmarkService,
   deleteBookmarkService,
+  commentOnPostService,
+  deleteCommentService,
+  editCommentService
 };
