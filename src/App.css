@@ -1,14 +1,18 @@
-@import url(styles/main.css);
-
 :root {
   --social-primary: #0dcaf0;
   --social-secondary: #b6effa;
   --grey-box-shadow: #757575;
   --grey-light: #e7dfdf;
+  --modal-bg: rgba(0, 0, 0, .5);
 }
 
 .App {
   min-height: 100vh;
+}
+
+.App.dark {
+  background-color: grey;
+  color: white;
 }
 
 .social-main-content {
@@ -19,6 +23,10 @@
 
 .nav-link.link-dark:hover {
   background-color: var(--social-secondary);
+}
+
+.nav-link.link-light:hover {
+  background-color: var(--grey-box-shadow);
 }
 
 p.lead {
@@ -57,9 +65,42 @@ p.lead {
   margin-right: 1rem;
 }
 
-.nav.nav-pills .nav-link.active {
+.App.light .nav.nav-pills .nav-link.active {
   background-color: var(--social-secondary);
 }
+
+.edit-post-modal-wrapper {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-bg);
+  z-index: 2000;
+  position: fixed;
+}
+
+.edit-post-container .card {
+  width: 100%;
+}
+
+.edit-post-container button {
+  margin-left: auto;
+  top: -15px;
+  right: -18px;
+}
+
+.App.dark .edit-post-container h4 {
+  color: black;
+}
+
+.edit-post-container {
+  background-color: var(--social-secondary);
+  width: 40%;
+  height: auto;
+}
+
 
 @media screen and (min-width: 1000px) {
   .nav.nav-pills {
@@ -74,4 +115,9 @@ p.lead {
     min-height: 100vh;
     grid-template-columns: 1fr;
   }
+  .edit-post-container {
+    width: 90%;
+  }
 }
+
+@import url(styles/main.css);

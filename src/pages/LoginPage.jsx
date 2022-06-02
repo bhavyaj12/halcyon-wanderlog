@@ -3,9 +3,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "redux-reducers";
 import { useToast } from "custom-hooks";
+import { useTheme } from "theme-context";
 import { VisibilityIcon, VisibilityOffIcon, loginImg } from "assets";
 
 const LoginPage = () => {
+  const { theme } = useTheme();
   const dispatch = useDispatch();
   const { showToast } = useToast();
   const navigate = useNavigate();
@@ -48,7 +50,13 @@ const LoginPage = () => {
   };
   return (
     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
-      <div className="card card0 border-0">
+      <div
+        className={
+          theme === "light"
+            ? "card card0 border-0"
+            : "card card0 border-0 bg-dark"
+        }
+      >
         <div className="flex-row-centre">
           <div className="col-lg-6">
             <div className="card1">
@@ -59,12 +67,16 @@ const LoginPage = () => {
                   alt="image of map and camera"
                   loading="lazy"
                 />
-              </div>  
+              </div>
             </div>
           </div>
           <div className="col-lg-6">
             <form
-              className="card2 card border-0 px-4 py-5"
+              className={
+                theme === "light"
+                  ? "card2 card border-0 px-4 py-5"
+                  : "card2 card border-0 px-4 py-5 bg-dark"
+              }
               onSubmit={(e) => {
                 e.preventDefault();
                 loginSubmitHandler(user);

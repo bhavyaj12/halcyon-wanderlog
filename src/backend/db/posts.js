@@ -1,4 +1,5 @@
 import { v4 as uuid } from "uuid";
+import { postImg1 } from "assets";
 import { formatDate } from "../utils/authUtils";
 
 /**
@@ -18,8 +19,8 @@ export const posts = [
     },
     username: "guestguest",
     firstName: "Guest",
-    lastName: "Guest",
-    postImage: "",
+    lastName: "Doe",
+    postImage: postImg1,
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

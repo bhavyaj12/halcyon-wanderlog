@@ -12,10 +12,76 @@ const addPostService = (token, postData) => {
   );
 };
 
-const deletePostService = (token, postID) => {
-  return axios.delete(`/api/posts/${postID}`, {
+const editPostService = (token, postData, postId) => {
+  return axios.post(
+    `/api/posts/edit/${postId}`,
+    { postData },
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+const deletePostService = (token, postId) => {
+  return axios.delete(`/api/posts/${postId}`, {
     headers: { authorization: token },
   });
 };
 
-export { fetchPostsService, addPostService, deletePostService };
+const likePostService = (token, postId) => {
+  return axios.post(
+    `/api/posts/like/${postId}`,
+    {},
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+const dislikePostService = (token, postId) => {
+  return axios.post(
+    `/api/posts/dislike/${postId}`,
+    {},
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+const fetchBookmarksService = (token) => {
+  return axios.get(`/api/users/bookmark/`, {
+    headers: { authorization: token },
+  });
+};
+
+const addBookmarkService = (token, postId) => {
+  return axios.post(
+    `/api/users/bookmark/${postId}`,
+    {},
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+const deleteBookmarkService = (token, postId) => {
+  return axios.post(
+    `/api/users/remove-bookmark/${postId}`,
+    {},
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+export {
+  fetchPostsService,
+  addPostService,
+  deletePostService,
+  editPostService,
+  likePostService,
+  dislikePostService,
+  fetchBookmarksService,
+  addBookmarkService,
+  deleteBookmarkService
+};

@@ -1,6 +1,6 @@
 .post-input {
   width: 100%;
-  height: 5rem;
+  height: 10rem;
   border: none;
   margin: 1rem;
 }
@@ -53,7 +53,11 @@
   width: 100%;
 }
 
-.card.bg-light {
+.add-post-card, .post-card {
   width: 60%;
   min-width: 20rem;
+}
+
+.card .dark-icon-btn, .dark-icon-btn {
+  color: white;
 }

@@ -1,8 +1,16 @@
 import { Image } from "react-bootstrap";
+import { useTheme } from "theme-context";
 
 const SuggestionList = () => {
+  const { theme } = useTheme();
   return (
-    <div className="suggestions-wrapper bg-light py-2">
+    <div
+      className={
+        theme === "light"
+          ? "suggestions-wrapper bg-light py-2"
+          : "suggestions-wrapper bg-dark py-2"
+      }
+    >
       <h5 className="mt-4">Suggestions for you</h5>
       <div className="flex-row-centre mt-3">
         <Image
