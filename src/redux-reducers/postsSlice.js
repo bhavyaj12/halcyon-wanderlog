@@ -9,6 +9,9 @@ import {
   fetchBookmarksService,
   addBookmarkService,
   deleteBookmarkService,
+  commentOnPostService,
+  deleteCommentService,
+  editCommentService
 } from "services";
 
 export const fetchPosts = createAsyncThunk(
@@ -31,7 +34,6 @@ export const addPost = createAsyncThunk(
     try {
       const { data } = await addPostService(token, postData);
       const { posts } = data;
-      console.log("From addPost thunk", data);
       return posts;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -42,11 +44,9 @@ export const addPost = createAsyncThunk(
 export const editPost = createAsyncThunk(
   "posts/editPost",
   async ({ token, postData, postId }, { rejectWithValue }) => {
-    console.log("from editpost thunk", token, postData, postId);
     try {
       const { data } = await editPostService(token, postData, postId);
       const { posts } = data;
-      console.log("response From editPost thunk", data);
       return posts;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -60,7 +60,6 @@ export const deletePost = createAsyncThunk(
     try {
       const { data } = await deletePostService(token, postId);
       const { posts } = data;
-      console.log("From deletePost thunk", data);
       return posts;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -133,6 +132,51 @@ export const deleteBookmark = createAsyncThunk(
   }
 );
 
+export const commentOnPost = createAsyncThunk(
+  "posts/commentOnPost",
+  async ({ token, postId, commentData }, { rejectWithValue }) => {
+    try {
+      const { data } = await commentOnPostService(token, postId, commentData);
+      const { comments } = data;
+      return { comments, postId };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteCommentInPost = createAsyncThunk(
+  "posts/deleteCommentInPost",
+  async ({ token, postId, commentId }, { rejectWithValue }) => {
+    try {
+      const { data } = await deleteCommentService(token, postId, commentId);
+      console.log("Thunk delet", data);
+      const { comments } = data;
+      return { comments, postId };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const editCommentInPost = createAsyncThunk(
+  "posts/editCommentInPost",
+  async ({ token, postId, commentId, commentData }, { rejectWithValue }) => {
+    try {
+      const { data } = await editCommentService(
+        token,
+        postId,
+        commentId,
+        commentData
+      );
+      const { comments } = data;
+      return { comments, postId };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const postsSlice = createSlice({
   name: "posts",
   initialState: {
@@ -167,6 +211,24 @@ const postsSlice = createSlice({
     },
     [deleteBookmark.fulfilled]: (state, action) => {
       state.bookmarks = action.payload;
+    },
+    [commentOnPost.fulfilled]: (state, action) => {
+      const i = state.posts.findIndex(
+        (post) => post._id === action.payload.postId
+      );
+      state.posts[i].comments = action.payload.comments;
+    },
+    [deleteCommentInPost.fulfilled]: (state, action) => {
+      const i = state.posts.findIndex(
+        (post) => post._id === action.payload.postId
+      );
+      state.posts[i].comments = action.payload.comments;
+    },
+    [editCommentInPost.fulfilled]: (state, action) => {
+      const i = state.posts.findIndex(
+        (post) => post._id === action.payload.postId
+      );
+      state.posts[i].comments = action.payload.comments;
     },
   },
 });
