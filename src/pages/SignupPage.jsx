@@ -26,10 +26,8 @@ const SignupPage = () => {
   const [signupError, setSignupError] = useState("");
 
   const singupSubmitHandler = async (user) => {
-    console.log(user);
     try {
       const response = await dispatch(signupUser(user));
-      console.log("response from signup submit", response);
       if (response?.error) {
         throw new Error(error);
       }

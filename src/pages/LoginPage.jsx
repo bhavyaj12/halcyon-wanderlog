@@ -27,10 +27,8 @@ const LoginPage = () => {
   };
 
   const loginSubmitHandler = async (user) => {
-    console.log(user);
     try {
       const response = await dispatch(loginUser(user));
-      console.log("response from login submit", response);
       if (response?.error) {
         throw new Error(error);
       }
