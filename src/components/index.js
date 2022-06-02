@@ -6,5 +6,7 @@ import PostCard from "./PostCard";
 import SuggestionList from "./SuggestionList";
 import Toast from "./Toast";
 import PostModal from "./PostModal";
+import CommentForm from "./CommentForm";
+import CommentsBox from "./CommentsBox";
 
-export { NavigationTop, Footer, NavSide, AddPost, PostCard, SuggestionList, Toast, PostModal };
+export { NavigationTop, Footer, NavSide, AddPost, PostCard, SuggestionList, Toast, PostModal, CommentForm, CommentsBox };

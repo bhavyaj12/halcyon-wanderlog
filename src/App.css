@@ -3,7 +3,10 @@
   --social-secondary: #b6effa;
   --grey-box-shadow: #757575;
   --grey-light: #e7dfdf;
-  --modal-bg: rgba(0, 0, 0, .5);
+  --modal-bg: rgba(0, 0, 0, 0.5);
+  --dark-theme-bg: #808080;
+  --white-color: #ffffff;
+  --black-dark: #000000;
 }
 
 .App {
@@ -11,8 +14,8 @@
 }
 
 .App.dark {
-  background-color: grey;
-  color: white;
+  background-color: var(--dark-theme-bg);
+  color: var(--white-color);
 }
 
 .social-main-content {
@@ -92,7 +95,7 @@ p.lead {
 }
 
 .App.dark .edit-post-container h4 {
-  color: black;
+  color: var(--black-dark);
 }
 
 .edit-post-container {
@@ -101,6 +104,13 @@ p.lead {
   height: auto;
 }
 
+.App.dark a.card.post-card {
+  color: var(--white-color);
+}
+
+.App.light a.card.post-card {
+  color: var(--black-dark);
+}
 
 @media screen and (min-width: 1000px) {
   .nav.nav-pills {

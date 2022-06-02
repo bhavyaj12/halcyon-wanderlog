@@ -40,7 +40,7 @@
   font-weight: 600;
 }
 
-.name-bold .post-date {
+.post-date {
   font-size: 0.75rem;
   font-weight: 500;
 }
@@ -53,11 +53,35 @@
   width: 100%;
 }
 
-.add-post-card, .post-card {
+.add-post-card,
+.post-card,
+.comments-box {
   width: 60%;
   min-width: 20rem;
 }
 
-.card .dark-icon-btn, .dark-icon-btn {
-  color: white;
+.comments-box {
+  border-radius: 0.375rem;
+}
+
+.comments-box .comments-textarea {
+  width: 20rem;
+  height: 3rem;
+  border: 1px solid var(--social-primary);
+}
+
+.card .dark-icon-btn,
+.dark-icon-btn {
+  color: var(--white-color);
+}
+
+.comments-card {
+  width: 100%;
+  border: 1px solid var(--social-secondary);
+}
+
+@media screen and (min-width: 1200px) {
+  .comments-card .post-user-actions {
+    margin-left: 8rem;
+  }
 }
