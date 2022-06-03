@@ -12,8 +12,6 @@ import { useTheme } from "theme-context";
 import { Image } from "react-bootstrap";
 import { getPost } from "redux-reducers";
 import {
-  ThumbUpOutlinedIcon,
-  ThumbUpIcon,
   DeleteOutlineIcon,
   EditIcon,
 } from "assets";
