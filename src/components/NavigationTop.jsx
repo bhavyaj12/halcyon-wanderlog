@@ -19,7 +19,7 @@ import { logo, dummyProfile } from "assets";
 
 const NavigationTop = () => {
   const { theme, setTheme } = useTheme();
-  const { isAuth } = useSelector(getAuth);
+  const { isAuth, user } = useSelector(getAuth);
   const { showToast } = useToast();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -94,21 +94,22 @@ const NavigationTop = () => {
             />
             <Button variant="outline-info">Search</Button>
           </Form>
-          <Button
-            variant="outline-secondary mx-2"
-            onClick={changeTheme}
-          >
+          <Button variant="outline-secondary mx-2" onClick={changeTheme}>
             {theme === "dark" ? <DarkMode /> : <LightMode />}
           </Button>
           {isAuth && (
-            <Image
-              alt="user profile image"
-              src={dummyProfile}
-              roundedCircle
-              width={30}
-              height={30}
-              className="mx-3 my-2 img-fluid"
-            />
+            <LinkContainer to={`/profile/${user.username}`}>
+              <Nav.Link>
+                <Image
+                  alt="user profile image"
+                  src={dummyProfile}
+                  roundedCircle
+                  width={30}
+                  height={30}
+                  className="mx-3 my-2 img-fluid"
+                />
+              </Nav.Link>
+            </LinkContainer>
           )}
         </Navbar.Collapse>
       </Container>
