@@ -13,7 +13,6 @@ export const loginUser = createAsyncThunk(
 		try {
 			const { data } = await loginService(user);
 			const { encodedToken, foundUser } = data;
-			console.log("From login thunk", data);
 			if (encodedToken) {
                 localStorage.setItem("WANDERLOG_AUTH_TOKEN", encodedToken);
                 localStorage.setItem("wanderlog_user", JSON.stringify(foundUser));
@@ -31,7 +30,6 @@ export const signupUser = createAsyncThunk(
 		try {
 			const { data } = await signupService(user);
 			const { encodedToken, createdUser } = data;
-			console.log("From signup thunk", data);
 			if (encodedToken) {
                 localStorage.setItem("WANDERLOG_AUTH_TOKEN", encodedToken);
                 localStorage.setItem("wanderlog_user", JSON.stringify(createdUser));

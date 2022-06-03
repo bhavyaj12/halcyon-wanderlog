@@ -7,7 +7,6 @@ import "./App.css";
 
 const App = () => {
   const { theme } = useTheme();
-  console.log(theme);
   const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);

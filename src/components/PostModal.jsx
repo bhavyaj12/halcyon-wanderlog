@@ -1,12 +1,10 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostModal, SET_POST_TO_EDIT, HIDE_MODAL } from "redux-reducers";
 import { CancelIcon } from "assets";
 import AddPost from "./AddPost";
 
 const PostModal = () => {
-  const { showModal, postToEdit } = useSelector(getPostModal);
-  console.log(showModal);
+  const { showModal } = useSelector(getPostModal);
   const dispatch = useDispatch();
 
   const cancelEditHandler = () => {

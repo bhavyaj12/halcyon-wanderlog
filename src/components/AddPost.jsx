@@ -21,7 +21,6 @@ const AddPost = ({ modal }) => {
   const { showToast } = useToast();
 
   const { postToEdit } = useSelector(getPostModal);
-  console.log("postToEdit", postToEdit);
 
   const isPostEditing = modal ? true : false;
 
@@ -45,7 +44,6 @@ const AddPost = ({ modal }) => {
 
     try {
       const response = await dispatch(addPost({ token, postData }));
-      console.log("response from add post handler", response);
       if (response.error) {
         throw new Error(response.payload);
       }
@@ -78,7 +76,6 @@ const AddPost = ({ modal }) => {
 
     try {
       const response = await dispatch(editPost({ token, postData, postId: postToEdit._id }));
-      console.log("response from edit post handler", response);
       if (response.error) {
         throw new Error(response.payload);
       }

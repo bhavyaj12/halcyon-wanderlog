@@ -18,6 +18,30 @@ export const posts = [
       dislikedBy: [],
     },
     username: "guestguest",
+    comments: [
+      {
+        _id: uuid(),
+        username: "bhavyajoshi",
+        text: "This is so good!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        createdAt: '2021-01-25',
+        updatedAt: '2021-01-25',
+      },
+      {
+        _id: uuid(),
+        username: "sohamshah",
+        text: "Really love your hard work.",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        createdAt: '2019-01-25',
+        updatedAt: '2019-01-25',
+      },
+    ],
     firstName: "Guest",
     lastName: "Doe",
     postImage: postImg1,
@@ -34,6 +58,30 @@ export const posts = [
       dislikedBy: [],
     },
     username: "bhavyajoshi",
+    comments: [
+      {
+        _id: uuid(),
+        username: "guestguest",
+        text: "Hope it gets better soon.",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        createdAt: '2022-02-13',
+        updatedAt: '2022-02-13',
+      },
+      {
+        _id: uuid(),
+        username: "sohamshah",
+        text: "Congratulations on your new job!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        createdAt: '2020-07-07',
+        updatedAt: '2020-07-07',
+      },
+    ],
     firstName: "Bhavya",
     lastName: "Joshi",
     postImage: "",
