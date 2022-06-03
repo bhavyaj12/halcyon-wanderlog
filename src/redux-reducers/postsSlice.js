@@ -11,14 +11,14 @@ import {
   deleteBookmarkService,
   commentOnPostService,
   deleteCommentService,
-  editCommentService
+  editCommentService,
 } from "services";
 
 export const fetchPosts = createAsyncThunk(
   "posts/fetchPosts",
-  async (token, { rejectWithValue }) => {
+  async (rejectWithValue) => {
     try {
-      const { data } = await fetchPostsService(token);
+      const { data } = await fetchPostsService();
       const { posts } = data;
       console.log("From fetchPosts thunk", data);
       return posts;
