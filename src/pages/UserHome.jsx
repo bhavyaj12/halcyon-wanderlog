@@ -4,13 +4,21 @@ import { fetchPosts, getPost, getAuth } from "redux-reducers";
 import { NavSide, AddPost, PostCard, SuggestionList } from "components";
 
 const UserHome = () => {
-  const { token } = useSelector(getAuth);
   const dispatch = useDispatch();
   const { posts } = useSelector(getPost);
 
   useEffect(() => {
-    dispatch(fetchPosts(token));
-  }, [dispatch]);
+    (async () => {
+      try {
+        const response = await dispatch(fetchPosts());
+        if (response.error) {
+          throw new Error("Can't fetch posts.");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
 
   return (
     <section className="social-main-content">
