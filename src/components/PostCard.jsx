@@ -120,27 +120,27 @@ const PostCard = ({ post }) => {
   };
 
   return (
-    <Link style={{ textDecoration: 'none' }} to={`/post/${_id}`}
+    <Link to={`/post/${_id}`}
       className={theme === "light" ? "card post-card bg-light m-4" : "card post-card bg-dark m-4"}
     >
       <div className="card-body">
         <div className="post-user my-2">
-          <Image
-            src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
-            roundedCircle
-            width={50}
-            height={50}
-            className="mx-3 my-2 img-fluid"
-          />
-          <div className="flex-col">
-            <span className="mx-3 name-bold">
-              {firstName} {lastName}{" "}
-              <span className="post-date mx-3">
-                {dayjs(new Date(updatedAt)).format("HH:mm:ss, ddd, DD/MM/YYYY")}
+            <Image
+              src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
+              roundedCircle
+              width={50}
+              height={50}
+              className="mx-3 my-2 img-fluid"
+            />
+            <div className="flex-col">
+              <span className="mx-3 name-bold">
+                {firstName} {lastName}{" "}
+                <span className="post-date mx-3">
+                  {dayjs(new Date(updatedAt)).format("HH:mm:ss, ddd, DD/MM/YYYY")}
+                </span>
               </span>
-            </span>
-            <span className="mx-3 user-name">@{username}</span>
-          </div>
+              <span className="mx-3 user-name">@{username}</span>
+            </div>
           {user.username === username && (
             <div className="post-user-actions flex-row-centre">
               <button
