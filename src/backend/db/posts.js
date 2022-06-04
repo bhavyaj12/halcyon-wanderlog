@@ -42,7 +42,7 @@ export const posts = [
         updatedAt: '2019-01-25',
       },
     ],
-    firstName: "Guest",
+    firstName: "John",
     lastName: "Doe",
     postImage: postImg1,
     createdAt: formatDate(),
