@@ -76,7 +76,7 @@ const NavigationTop = () => {
               </LinkContainer>
             )}
             {isAuth ? (
-              <Button variant="danger" onClick={logoutHandler}>
+              <Button variant="danger" onClick={logoutHandler} className="logout-btn">
                 Logout
               </Button>
             ) : (
@@ -94,7 +94,7 @@ const NavigationTop = () => {
             />
             <Button variant="outline-info">Search</Button>
           </Form>
-          <Button variant="outline-secondary mx-2" onClick={changeTheme}>
+          <Button className="change-theme-btn" variant="outline-secondary mx-2" onClick={changeTheme}>
             {theme === "dark" ? <DarkMode /> : <LightMode />}
           </Button>
           {isAuth && (

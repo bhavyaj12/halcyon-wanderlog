@@ -21,7 +21,7 @@
 .social-main-content {
   display: grid;
   min-height: 100vh;
-  grid-template-columns: 300px 1fr 250px;
+  grid-template-columns: 300px 1fr 290px;
 }
 
 .nav-link.link-dark:hover {
@@ -104,17 +104,17 @@ p.lead {
   height: auto;
 }
 
-.App.dark a.card.post-card,  .App.dark a.post-user {
+.App.dark a.card.post-card,  .App.dark a.post-user, .App.dark a.link-no-decor, .App.dark div.link-no-decor {
   color: var(--white-color);
   text-decoration: none;
 }
 
-.App.light a.card.post-card, .App.light a.post-user {
+.App.light a.card.post-card, .App.light a.post-user, .App.light a.link-no-decor, .App.light div.link-no-decor {
   color: var(--black-dark);
   text-decoration: none;
 }
 
-.App.light a.post-user:hover, .App.dark a.post-user:hover {
+.App.light a.post-user:hover, .App.dark a.post-user:hover, .App.dark a.link-no-decor:hover, .App.light a.link-no-decor:hover, .App.light div.link-no-decor:hover, .App.dark div.link-no-decor:hover {
   color: var(--social-primary);
   transition: 100ms ease-in-out;
 }
@@ -134,6 +134,13 @@ p.lead {
   }
   .edit-post-container {
     width: 90%;
+  }
+  .logout-btn {
+    width: 20%;
+    margin: 1rem 0;
+  }
+  .change-theme-btn {
+    margin: 1rem 0;
   }
 }
 
