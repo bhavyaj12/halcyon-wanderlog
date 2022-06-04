@@ -18,8 +18,35 @@ const updateUserProfileService = (token, userData) => {
   );
 };
 
+const followUserService = (token, userId) => {
+  return axios.post(
+    `/api/users/follow/${userId}`,
+    {},
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+const unfollowUserService = (token, userId) => {
+  return axios.post(
+    `/api/users/unfollow/${userId}`,
+    {},
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+const fetchAllUsersService = () => {
+  return axios.get("/api/users");
+};
+
 export {
   fetchUserProfileService,
   fetchUserPostsService,
   updateUserProfileService,
+  followUserService,
+  unfollowUserService,
+  fetchAllUsersService
 };
