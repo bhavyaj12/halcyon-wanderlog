@@ -119,6 +119,10 @@ const PostCard = ({ post }) => {
     }
   };
 
+  const goToUserProfile = (username) => {
+    navigate(`/profile/${username}`);
+  }
+
   return (
     <Link to={`/post/${_id}`}
       className={theme === "light" ? "card post-card bg-light m-4" : "card post-card bg-dark m-4"}
@@ -132,7 +136,9 @@ const PostCard = ({ post }) => {
               height={50}
               className="mx-3 my-2 img-fluid"
             />
-            <div className="flex-col">
+            <div className="flex-col link-no-decor" onClick={(e) => {
+              e.preventDefault();
+              goToUserProfile(username)}}>
               <span className="mx-3 name-bold">
                 {firstName} {lastName}{" "}
                 <span className="post-date mx-3">
@@ -202,7 +208,7 @@ const PostCard = ({ post }) => {
                 <ThumbUpOutlinedIcon />
               </button>
             )}
-            <span className="mx-1">{likeCount > 0 ? likeCount : " "}</span>
+            <span className="mx-1">{likeCount > 0 ? likeCount : 0}</span>
           </div>
           <div className="flex-row-centre">
             <button
@@ -213,7 +219,7 @@ const PostCard = ({ post }) => {
             >
               <ForumOutlinedIcon />
             </button>
-            <span className="mx-1">1</span>
+            <span className="mx-1">{comments.length > 0 ? comments.length : 0}</span>
           </div>
           <div className="flex-row-centre">
             {checkUserBookmarks() ? (
