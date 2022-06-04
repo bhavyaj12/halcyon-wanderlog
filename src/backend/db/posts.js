@@ -11,7 +11,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "This is a very famous lake in Ladakh. Pangong Lake, situated at a height of almost 4,350m, is the world’s highest saltwater lake. Its water, which seems to be dyed in blue, stand in stark contrast to the arid mountains surrounding it. Extending to almost 160km, one-third of the Pangong Lake lies in India and the other two-thirds in China. Must visit!",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -51,7 +51,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "Share this with your Ladakh gang! -> Zal Homestay, Leh. It was my home in Leh, and it was beautiful! I worked out of here, took my zoom calls and created my videos. Everything worked seamlessly. They have an amazing common room to chill and work out of. Lots of privacy when you need it, but can also end up making new friends here. It’s around a 10 minute walk from the main market. My room was lovely and I’ve been dreaming to go back",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -62,24 +62,13 @@ export const posts = [
       {
         _id: uuid(),
         username: "guestguest",
-        text: "Hope it gets better soon.",
+        text: "So pretty!.",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
         },
-        createdAt: '2022-02-13',
-        updatedAt: '2022-02-13',
-      },
-      {
-        _id: uuid(),
-        username: "sohamshah",
-        text: "Congratulations on your new job!",
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-        createdAt: '2020-07-07',
-        updatedAt: '2020-07-07',
+        createdAt: '2021-05-13',
+        updatedAt: '2021-05-13',
       },
     ],
     firstName: "Bhavya",

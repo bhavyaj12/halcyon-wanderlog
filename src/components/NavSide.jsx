@@ -40,7 +40,7 @@ const NavSide = () => {
         </li>
         <li className="nav-item">
           <LinkContainer
-            to="/"
+            to="/explore"
             className={
               theme === "light"
                 ? "nav-link link-dark d-flex"
