@@ -4,6 +4,9 @@ import {
   fetchUserProfileService,
   fetchUserPostsService,
   updateUserProfileService,
+  followUserService,
+  unfollowUserService,
+  fetchAllUsersService
 } from "./userServices";
 import {
   fetchPostsService,
@@ -38,4 +41,7 @@ export {
   fetchUserProfileService,
   fetchUserPostsService,
   updateUserProfileService,
+  followUserService,
+  unfollowUserService,
+  fetchAllUsersService
 };
