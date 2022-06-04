@@ -1,6 +1,11 @@
 import { loginService } from "./loginService";
 import { signupService } from "./signupService";
 import {
+  fetchUserProfileService,
+  fetchUserPostsService,
+  updateUserProfileService,
+} from "./userServices";
+import {
   fetchPostsService,
   addPostService,
   deletePostService,
@@ -12,7 +17,7 @@ import {
   deleteBookmarkService,
   commentOnPostService,
   deleteCommentService,
-  editCommentService
+  editCommentService,
 } from "./postsServices";
 
 export {
@@ -29,5 +34,8 @@ export {
   deleteBookmarkService,
   commentOnPostService,
   deleteCommentService,
-  editCommentService
+  editCommentService,
+  fetchUserProfileService,
+  fetchUserPostsService,
+  updateUserProfileService,
 };

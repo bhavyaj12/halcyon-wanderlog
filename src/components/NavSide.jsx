@@ -1,4 +1,5 @@
 import { Nav } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import {
   AccountCircleIcon,
@@ -7,9 +8,11 @@ import {
   ExploreIcon,
 } from "assets";
 import { useTheme } from "theme-context";
+import { getAuth } from "redux-reducers";
 
 const NavSide = () => {
   const { theme } = useTheme();
+  const { user } = useSelector(getAuth);
   return (
     <div
       className={
@@ -67,7 +70,7 @@ const NavSide = () => {
         </li>
         <li className="nav-item">
           <LinkContainer
-            to="/"
+            to={`/profile/${user.username}`}
             className={
               theme === "light"
                 ? "nav-link link-dark d-flex"

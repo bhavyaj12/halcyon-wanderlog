@@ -8,5 +8,6 @@ import Toast from "./Toast";
 import PostModal from "./PostModal";
 import CommentForm from "./CommentForm";
 import CommentsBox from "./CommentsBox";
+import EditProfile from "./EditProfile";
 
-export { NavigationTop, Footer, NavSide, AddPost, PostCard, SuggestionList, Toast, PostModal, CommentForm, CommentsBox };
+export { NavigationTop, Footer, NavSide, AddPost, PostCard, SuggestionList, Toast, PostModal, CommentForm, CommentsBox, EditProfile };

@@ -100,16 +100,23 @@ p.lead {
 
 .edit-post-container {
   background-color: var(--social-secondary);
-  width: 40%;
+  width: 60%;
   height: auto;
 }
 
-.App.dark a.card.post-card {
+.App.dark a.card.post-card,  .App.dark a.post-user {
   color: var(--white-color);
+  text-decoration: none;
 }
 
-.App.light a.card.post-card {
+.App.light a.card.post-card, .App.light a.post-user {
   color: var(--black-dark);
+  text-decoration: none;
+}
+
+.App.light a.post-user:hover, .App.dark a.post-user:hover {
+  color: var(--social-primary);
+  transition: 100ms ease-in-out;
 }
 
 @media screen and (min-width: 1000px) {
@@ -127,6 +134,12 @@ p.lead {
   }
   .edit-post-container {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    font-size: 80%;
   }
 }
 

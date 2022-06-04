@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { NavigationTop, Footer, Toast, PostModal } from "components";
+import { NavigationTop, Footer, Toast, PostModal, EditProfile } from "components";
 import { Routes } from "routes";
 import { useTheme } from "theme-context";
 import "./App.css";

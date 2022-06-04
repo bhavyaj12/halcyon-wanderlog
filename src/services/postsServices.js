@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const fetchPostsService = (token) => {
-  return axios.get("/api/posts", { headers: { authorization: token } });
+const fetchPostsService = () => {
+  return axios.get("/api/posts");
 };
 
 const addPostService = (token, postData) => {
@@ -118,5 +118,5 @@ export {
   deleteBookmarkService,
   commentOnPostService,
   deleteCommentService,
-  editCommentService
+  editCommentService,
 };
