@@ -22,7 +22,6 @@ const CommentForm = ({ post }) => {
   const { token, user } = useSelector(getAuth);
   const { showToast } = useToast();
   const dispatch = useDispatch();
-  console.log("from comments form", post);
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState(post.comments);
   const [isEditingId, setIsEditingId] = useState(false);
@@ -65,7 +64,6 @@ const CommentForm = ({ post }) => {
               commentData: { text: comment },
             })
           );
-      console.log(response);
       if (response.error) {
         throw new Error("Couldn't modify comments");
       }
@@ -85,7 +83,6 @@ const CommentForm = ({ post }) => {
           commentId: commentId,
         })
       );
-      console.log(response);
       if (response.error) {
         throw new Error("Couldn't delete comment");
       }

@@ -6,13 +6,11 @@ import {
 } from "services";
 
 export const fetchUserProfile = createAsyncThunk(
-  "auth/fetchUserProfile",
+  "userProfile/fetchUserProfile",
   async ({ username }, { rejectWithValue }) => {
-    console.log("from fetch user profile", username);
     try {
       const { data } = await fetchUserProfileService(username);
       const { user } = data;
-      console.log("fetchUserProfile", user);
       return user;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -21,13 +19,11 @@ export const fetchUserProfile = createAsyncThunk(
 );
 
 export const fetchUserPosts = createAsyncThunk(
-  "posts/fetchUserPosts",
+  "userProfile/fetchUserPosts",
   async ({ username }, { rejectWithValue }) => {
-    console.log(username);
     try {
       const { data } = await fetchUserPostsService(username);
       const { posts } = data;
-      console.log("From fetchUserPosts thunk", data);
       return posts;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -36,13 +32,11 @@ export const fetchUserPosts = createAsyncThunk(
 );
 
 export const updateUserProfile = createAsyncThunk(
-  "auth/updateUserProfile",
+  "userProfile/updateUserProfile",
   async ({ token, userData }, { rejectWithValue }) => {
-    console.log("from update user profile", token, userData);
     try {
       const { data } = await updateUserProfileService(token, userData);
       const { user } = data;
-      console.log(user);
       return user;
     } catch (error) {
       return rejectWithValue(error.message);

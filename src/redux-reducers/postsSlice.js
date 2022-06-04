@@ -20,7 +20,6 @@ export const fetchPosts = createAsyncThunk(
     try {
       const { data } = await fetchPostsService();
       const { posts } = data;
-      console.log("From fetchPosts thunk", data);
       return posts;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -150,7 +149,6 @@ export const deleteCommentInPost = createAsyncThunk(
   async ({ token, postId, commentId }, { rejectWithValue }) => {
     try {
       const { data } = await deleteCommentService(token, postId, commentId);
-      console.log("Thunk delet", data);
       const { comments } = data;
       return { comments, postId };
     } catch (error) {
