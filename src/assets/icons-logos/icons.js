@@ -13,7 +13,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import CancelIcon from '@mui/icons-material/Cancel';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 
 
 export { Menu } from "@mui/icons-material";
-export { AddPhotoAlternateIcon, ThumbUpOutlinedIcon, ThumbUpIcon, BookmarkBorderOutlinedIcon, BookmarkOutlinedIcon, ForumOutlinedIcon, ShareOutlinedIcon, DeleteOutlineIcon, EditIcon, HomeIcon, ExploreIcon, VisibilityIcon, VisibilityOffIcon, CancelIcon, AccountCircleIcon };
+export { AddPhotoAlternateIcon, ThumbUpOutlinedIcon, ThumbUpIcon, BookmarkBorderOutlinedIcon, BookmarkOutlinedIcon, ForumOutlinedIcon, ShareOutlinedIcon, DeleteOutlineIcon, EditIcon, HomeIcon, ExploreIcon, VisibilityIcon, VisibilityOffIcon, CancelIcon, AccountCircleIcon, FilterListOutlinedIcon };

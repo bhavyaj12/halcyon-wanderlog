@@ -22,6 +22,7 @@ import {
   VisibilityOffIcon,
   CancelIcon,
   AccountCircleIcon,
+  FilterListOutlinedIcon
 } from "./icons-logos/icons";
 
 export {
@@ -48,4 +49,5 @@ export {
   CancelIcon,
   postImg1,
   AccountCircleIcon,
+  FilterListOutlinedIcon
 };
