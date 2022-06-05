@@ -119,6 +119,10 @@ p.lead {
   transition: 100ms ease-in-out;
 }
 
+.object-fit-cover {
+  object-fit: cover;
+}
+
 @media screen and (min-width: 1000px) {
   .nav.nav-pills {
     position: fixed;
