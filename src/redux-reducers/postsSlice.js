@@ -94,7 +94,7 @@ export const dislikePost = createAsyncThunk(
 
 export const fetchBookmarks = createAsyncThunk(
   "posts/fetchBookmarks",
-  async ({ token }, { rejectWithValue }) => {
+  async (token, { rejectWithValue }) => {
     try {
       const { data } = await fetchBookmarksService(token);
       const { bookmarks } = data;
