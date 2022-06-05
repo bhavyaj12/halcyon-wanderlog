@@ -11,10 +11,7 @@ import { useToast } from "custom-hooks";
 import { useTheme } from "theme-context";
 import { Image } from "react-bootstrap";
 import { getPost } from "redux-reducers";
-import {
-  DeleteOutlineIcon,
-  EditIcon,
-} from "assets";
+import { DeleteOutlineIcon, EditIcon } from "assets";
 
 const CommentForm = ({ post }) => {
   const { theme } = useTheme();
@@ -40,7 +37,7 @@ const CommentForm = ({ post }) => {
   useEffect(() => {
     setCommentList(
       [...post.comments].sort(
-        (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       )
     );
   }, [post.comments]);
@@ -105,7 +102,7 @@ const CommentForm = ({ post }) => {
           roundedCircle
           width={30}
           height={30}
-          className="my-2 mx-2 img-fluid"
+          className="my-2 mx-2 object-fit-cover"
         />
         <form className="d-flex justify-content-start align-items-center p-2">
           <textarea
@@ -151,58 +148,58 @@ const CommentForm = ({ post }) => {
           : commentList.map((commentItem) => (
               <div
                 key={commentItem._id}
-                className="d-flex justify-content-start align-items-start w-100 comments-card p-2"
+                className="w-100 comments-card p-2"
               >
-                <Image
-                  src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
-                  roundedCircle
-                  width={30}
-                  height={30}
-                  className="my-2 mx-2 img-fluid"
-                />
-                <div className="d-flex flex-column gap-3">
-                  <div className="d-flex align-items-center">
-                    <h6>
-                      @{commentItem.username}{" "}
-                      <span className="post-date fw-normal mx-3">
-                        {dayjs(new Date(commentItem.updatedAt)).format(
-                          "HH:mm, ddd, DD/MM/YYYY"
-                        )}
-                      </span>
-                    </h6>
-                    {user.username === commentItem.username && (
-                      <div className="post-user-actions d-flex">
-                        <button
-                          type="button"
-                          className={
-                            theme === "light"
-                              ? "icon-btn flex-row-centre"
-                              : "icon-btn dark-icon-btn"
-                          }
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setIsEditingId(commentItem._id);
-                          }}
-                        >
-                          <EditIcon />
-                        </button>
-                        <button
-                          type="button"
-                          className={
-                            theme === "light"
-                              ? "icon-btn flex-row-centre"
-                              : "icon-btn dark-icon-btn"
-                          }
-                          onClick={(e) => {
-                            e.preventDefault();
-                            deleteCommentHandler(commentItem._id);
-                          }}
-                        >
-                          <DeleteOutlineIcon />
-                        </button>
-                      </div>
-                    )}
-                  </div>
+                <div className="d-flex justify-content-start align-items-center">
+                  <Image
+                    src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
+                    roundedCircle
+                    width={30}
+                    height={30}
+                    className="my-2 mx-2 object-fit-cover"
+                  />
+                  <h6>
+                    @{commentItem.username}{" "}
+                    <span className="post-date fw-normal mx-3">
+                      {dayjs(new Date(commentItem.createdAt)).format(
+                        "HH:mm, DD/MM/YYYY"
+                      )}
+                    </span>
+                  </h6>
+                  {user.username === commentItem.username && (
+                    <div className="post-user-actions d-flex">
+                      <button
+                        type="button"
+                        className={
+                          theme === "light"
+                            ? "icon-btn flex-row-centre"
+                            : "icon-btn dark-icon-btn"
+                        }
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsEditingId(commentItem._id);
+                        }}
+                      >
+                        <EditIcon />
+                      </button>
+                      <button
+                        type="button"
+                        className={
+                          theme === "light"
+                            ? "icon-btn flex-row-centre"
+                            : "icon-btn dark-icon-btn"
+                        }
+                        onClick={(e) => {
+                          e.preventDefault();
+                          deleteCommentHandler(commentItem._id);
+                        }}
+                      >
+                        <DeleteOutlineIcon />
+                      </button>
+                    </div>
+                  )}
+                </div>
+                <div className="d-flex flex-column gap-3 mx-2 my-1">
                   <p className="fs-6 fw-normal">{commentItem.text}</p>
                 </div>
               </div>
