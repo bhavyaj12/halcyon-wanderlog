@@ -10,32 +10,35 @@ import {
   fetchUserPosts,
   fetchUserProfile,
   SHOW_PROFILE_MODAL,
+  followUser,
+  unfollowUser,
+  getAllUsers
 } from "redux-reducers";
+import { useToast } from "custom-hooks";
 import { useTheme } from "theme-context";
 
 const ProfilePage = () => {
   const { theme } = useTheme();
-  const { user } = useSelector(getAuth);
+  const { token, user } = useSelector(getAuth);
   const { posts } = useSelector(getPost);
   const { userProfile, userPosts } = useSelector(getUserProfile);
   const { username } = useParams();
+  const { showToast } = useToast();
   const dispatch = useDispatch();
+  const { users } = useSelector(getAllUsers); 
 
   const {
+    _id,
     firstName,
     lastName,
     followers,
     following,
     userBio,
     portfolio,
-  } = userProfile;
+  } = userProfile; 
 
   const [userPostsLoading, setUserPostsLoading] = useState(true);
   
-  const editProfileHandler = () => {
-    dispatch(SHOW_PROFILE_MODAL());
-  };
-
   useEffect(() => {
     dispatch(fetchUserPosts({ username: username }));
   }, [posts])
@@ -62,7 +65,28 @@ const ProfilePage = () => {
         console.log(error.message);
       }
     })();
-  }, [username]);
+  }, [users, username]);
+
+  const checkFollowed = () => followers?.some((listUser) => listUser.username === user.username);
+
+  const followUnfollowHandler = async () => {
+    try {
+      const response = checkFollowed() ? await dispatch(
+        unfollowUser({ token, userId: _id, dispatch})
+      ) : await dispatch(
+        followUser({ token, userId: _id, dispatch})
+      );
+      if (response.error) {
+        throw new Error(response.error);
+      }
+    } catch (error) {
+      showToast("error", "Can't follow user. Try again later.");
+    }
+  };
+  
+  const editProfileHandler = () => {
+    dispatch(SHOW_PROFILE_MODAL());
+  };
 
   return (
     <div>
@@ -98,6 +122,13 @@ const ProfilePage = () => {
               >
                 Edit Profile
               </button>}
+              {user.username !== username && <button
+                type="button"
+                className="btn btn-info btn-sm"
+                onClick={followUnfollowHandler}
+              >
+                {checkFollowed() ? "Following" : "Follow"}
+              </button>}
             </div>
             <div className="my-5">
               <p className="mx-3 user-bio mt-5">
@@ -112,8 +143,8 @@ const ProfilePage = () => {
               </p>
               <p className="mx-3 user-bio mt-2 d-flex justify-content-between align-items-center">
                 <span className="fw-bolder">{userPostsLoading ? 0 : userPosts.length} Posts </span>
-                <span className="fw-bolder">{followers} Followers </span>
-                <span className="fw-bolder">{following} Following </span>
+                <span className="fw-bolder">{followers?.length} Followers </span>
+                <span className="fw-bolder">{following?.length} Following </span>
               </p>
             </div>
           </div>

@@ -1,11 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts, getPost, getAuth } from "redux-reducers";
 import { NavSide, AddPost, PostCard, SuggestionList } from "components";
 
 const UserHome = () => {
+  const { token, user } = useSelector(getAuth);
   const dispatch = useDispatch();
   const { posts } = useSelector(getPost);
+
+  const [postsOfFollowing, setPostsOfFollowing] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -18,14 +21,23 @@ const UserHome = () => {
         console.log(error);
       }
     })();
-  }, []);
+    const filterByFollowing = posts.filter(
+      (post) =>
+        user.username === post.username ||
+        user.following.find((account) => account.username === post.username)
+    );
+    setPostsOfFollowing(filterByFollowing);
+  }, [token, posts]);
 
   return (
     <section className="social-main-content">
       <NavSide />
       <div className="posts-wrapper">
         <AddPost />
-        {posts.length > 0 && posts.map((post) => <PostCard key={post._id} post={post}/>)}
+        {postsOfFollowing.length > 0 &&
+          postsOfFollowing.map((post) => (
+            <PostCard key={post._id} post={post} />
+          ))}
       </div>
       <SuggestionList />
     </section>
