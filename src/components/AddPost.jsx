@@ -12,7 +12,7 @@ import {
 import { Image } from "react-bootstrap";
 import { useToast } from "custom-hooks";
 import { useTheme } from "theme-context";
-import { AddPhotoAlternateIcon, dummyProfile, CancelIcon } from "assets";
+import { AddPhotoAlternateIcon, CancelIcon } from "assets";
 
 const AddPost = ({ modal }) => {
   const { theme } = useTheme();
@@ -33,11 +33,12 @@ const AddPost = ({ modal }) => {
 
   const addPostHandler = async (e) => {
     e.preventDefault();
-    const { firstName, lastName } = user;
+    const { firstName, lastName, profileImg } = user;
 
     const postData = {
       firstName,
       lastName,
+      profileImg,
       content: addContent,
       postImage: addPostImage,
     };
@@ -110,11 +111,11 @@ const AddPost = ({ modal }) => {
         <div className="d-flex justify-content-start align-items-center">
           <Image
             alt="user profile image"
-            src={dummyProfile}
+            src={user.profileImg}
             roundedCircle
             width={50}
             height={50}
-            className="mx-3 my-2 img-fluid"
+            className="mx-3 my-2 object-fit-cover"
           />
           <textarea
             className="post-input"
@@ -139,7 +140,7 @@ const AddPost = ({ modal }) => {
             <div className="position-relative">
               <p>Images: </p>
               <Image
-                className="my-1 img-fluid"
+                className="my-1 object-fit-cover"
                 width={100}
                 height={50}
                 src={addPostImage}
