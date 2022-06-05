@@ -32,7 +32,7 @@ export const addPost = createAsyncThunk(
   async ({ token, postData }, { rejectWithValue }) => {
     try {
       const { data } = await addPostService(token, postData);
-      const { posts } = data;
+      const { posts } = data; 
       return posts;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -180,8 +180,13 @@ const postsSlice = createSlice({
   initialState: {
     posts: [],
     bookmarks: [],
+    sortBy: "LATEST",
   },
-  reducers: {},
+  reducers: {
+    setSortBy: (state, action) => {
+      state.sortBy = action.payload;
+    }
+  },
   extraReducers: {
     [fetchPosts.fulfilled]: (state, action) => {
       state.posts = action.payload;
@@ -232,4 +237,5 @@ const postsSlice = createSlice({
 });
 
 export const getPost = (state) => state.posts;
+export const { setSortBy } = postsSlice.actions;
 export const postsReducer = postsSlice.reducer;
