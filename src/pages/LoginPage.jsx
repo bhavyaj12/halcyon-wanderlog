@@ -125,21 +125,10 @@ const LoginPage = () => {
                   {passwordVisible ? <VisibilityOffIcon /> : <VisibilityIcon />}
                 </button>
               </div>
-              <div className="flex-row-spacebtw px-3 my-4">
-                <div>
-                  <input id="checkbox-remember" type="checkbox" name="chk" />
-                  <label htmlFor="checkbox-remember" className="text-sm mx-2">
-                    Remember me
-                  </label>
-                </div>
-                <Link to="/" className="ml-auto mb-0 text-sm text-secondary">
-                  Forgot Password?
-                </Link>
-              </div>
               {loginError !== "" && (
                 <p className="flex-col px-3 text-danger">{loginError}</p>
               )}
-              <div className="flex-col mb-3 px-3">
+              <div className="flex-col mb-3 px-3 my-4">
                 <button type="submit" className="btn btn-info text-center">
                   Login
                 </button>
