@@ -108,14 +108,14 @@ const AddPost = ({ modal }) => {
     <form className={theme === "light" ? "card add-post-card bg-light m-4" : "card add-post-card bg-dark m-4"}>
       <div className="card-header">What's Happening?</div>
       <div className="card-body">
-        <div className="d-flex justify-content-start align-items-center">
+        <div className="d-flex justify-content-center align-items-center gap-2">
           <Image
             alt="user profile image"
             src={user.profileImg}
             roundedCircle
-            width={50}
-            height={50}
-            className="mx-3 my-2 object-fit-cover"
+            width={60}
+            height={60}
+            className="object-fit-cover flex-shrink-0"
           />
           <textarea
             className="post-input"

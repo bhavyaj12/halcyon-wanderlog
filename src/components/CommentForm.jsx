@@ -5,6 +5,7 @@ import {
   getAuth,
   deleteCommentInPost,
   editCommentInPost,
+  getAllUsers,
 } from "redux-reducers";
 import { useDispatch, useSelector } from "react-redux";
 import { useToast } from "custom-hooks";
@@ -21,6 +22,7 @@ const CommentForm = ({ post }) => {
   const dispatch = useDispatch();
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState(post.comments);
+  const { users } = useSelector(getAllUsers);
   const [isEditingId, setIsEditingId] = useState(false);
 
   const editCommentText = () =>
@@ -98,11 +100,11 @@ const CommentForm = ({ post }) => {
     <>
       <div className="d-flex justify-content-start align-items-center w-100">
         <Image
-          src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
+          src={user.profileImg}
           roundedCircle
           width={30}
           height={30}
-          className="my-2 mx-2 object-fit-cover"
+          className="my-2 object-fit-cover flex-shrink-0"
         />
         <form className="d-flex justify-content-start align-items-center p-2">
           <textarea
@@ -152,7 +154,7 @@ const CommentForm = ({ post }) => {
               >
                 <div className="d-flex justify-content-start align-items-center">
                   <Image
-                    src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
+                    src={commentItem.username === user.username ? user.profileImg : commentItem.profileImg}
                     roundedCircle
                     width={30}
                     height={30}

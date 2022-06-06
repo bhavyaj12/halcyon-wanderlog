@@ -223,7 +223,6 @@ const SignupPage = () => {
                   src={signupImg}
                   className="login-image"
                   alt="picture of mug with adventure begins"
-                  loading="lazy"
                 />
               </div>
             </div>

@@ -138,10 +138,10 @@ const PostCard = ({ post }) => {
             roundedCircle
             width={50}
             height={50}
-            className="mx-3 my-2 object-fit-cover"
+            className="my-2 object-fit-cover flex-shrink-0"
           />
           <div
-            className="flex-col link-no-decor"
+            className="d-flex flex-column justify-content-center align-items-start gap-1 link-no-decor"
             onClick={(e) => {
               e.preventDefault();
               goToUserProfile(username);
@@ -149,10 +149,10 @@ const PostCard = ({ post }) => {
           >
             <span className="mx-3 name-bold">
               @{username}
-              <span className="post-date mx-3">
+            </span>
+            <span className="post-date mx-3">
                 {dayjs(new Date(createdAt)).format("HH:mm:ss, ddd, DD/MM/YYYY")}
               </span>
-            </span>
           </div>
           {user.username === username && (
             <div className="post-user-actions flex-row-centre">
@@ -189,6 +189,7 @@ const PostCard = ({ post }) => {
               src={postImage}
               fluid
               className="mx-3 my-2 object-fit-cover"
+              loading="lazy"
             />
           </div>
         )}

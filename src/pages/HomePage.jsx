@@ -15,7 +15,6 @@ const HomePage = () => {
             alt="Travel hero image"
             width="700"
             height="500"
-            loading="lazy"
           />
         </div>
         <div className="col-lg-6">
@@ -26,7 +25,7 @@ const HomePage = () => {
             Wanderlog is a social media site created for and of passionate
             travellers who are looking to share their travel journey with
             people, inspiring others to let go of their inhibition and start
-            with their own solo travel wanderings.
+            with their own travel wanderings.
           </p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
             {isAuth ? (

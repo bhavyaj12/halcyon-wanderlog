@@ -123,14 +123,14 @@ p.lead {
   object-fit: cover;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1130px) {
   .nav.nav-pills {
     position: fixed;
     width: 15%;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1130px) {
   .social-main-content {
     display: grid;
     min-height: 100vh;
@@ -151,6 +151,12 @@ p.lead {
 @media screen and (max-width: 600px) {
   :root {
     font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .post-user {
+    
   }
 }
 
