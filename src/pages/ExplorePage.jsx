@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useToast } from "custom-hooks";
 import { fetchPosts, getPost, getAuth } from "redux-reducers";
 import { NavSide, PostCard, SuggestionList } from "components";
 
@@ -7,6 +8,9 @@ const ExplorePage = () => {
   const { token } = useSelector(getAuth);
   const dispatch = useDispatch();
   const { posts } = useSelector(getPost);
+  const { showToast } = useToast();
+
+  const [explorePosts, setExplorePosts] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -16,16 +20,23 @@ const ExplorePage = () => {
           throw new Error("Can't fetch posts.");
         }
       } catch (error) {
-        console.log(error);
+        showToast("error", error.message);
       }
     })();
+  }, [token]);
+
+  useEffect(() => {
+    setExplorePosts([...posts].sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    ));
   }, [token]);
 
   return (
     <section className="social-main-content">
       <NavSide />
       <div className="posts-wrapper">
-        {posts.length > 0 && posts.map((post) => <PostCard key={post._id} post={post}/>)}
+        {explorePosts.length > 0 &&
+          explorePosts.map((post) => <PostCard key={post._id} post={post} />)}
       </div>
       <SuggestionList />
     </section>

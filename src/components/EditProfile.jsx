@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Image } from "react-bootstrap";
 import {
   getAuth,
   getProfileModal,
@@ -10,7 +11,7 @@ import {
 } from "redux-reducers";
 import { useTheme } from "theme-context";
 import { useToast } from "custom-hooks";
-import { CancelIcon } from "assets";
+import { CancelIcon, AddPhotoAlternateIcon } from "assets";
 
 const EditProfile = () => {
   const { theme } = useTheme();
@@ -20,12 +21,13 @@ const EditProfile = () => {
 
   const { isAuth, token, user } = useSelector(getAuth);
 
-  const { firstName, lastName, userBio, portfolio } = user;
+  const { firstName, lastName, userBio, portfolio, profileImg } = user;
   const [userProfileDetails, setUserProfileDetails] = useState({
     firstName: firstName,
     lastName: lastName,
     userBio: userBio,
     portfolio: portfolio,
+    profileImg: profileImg,
   });
 
   const cancelProfileEditHandler = () => {
@@ -48,6 +50,18 @@ const EditProfile = () => {
     }
   };
 
+  const fileToURL = () => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      let imgUrl = reader.result;
+      setUserProfileDetails({
+        ...userProfileDetails,
+        profileImg: imgUrl,
+      });
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+
   return showProfileModal && isAuth ? (
     <div className="edit-post-modal-wrapper d-flex justify-content-center align-items-center">
       <div className="edit-post-container p-2 position-relative">
@@ -63,8 +77,8 @@ const EditProfile = () => {
             <form
               className={
                 theme === "light"
-                  ? "card2 card edit-profile-form border-0 py-5 w-100"
-                  : "card2 card edit-profile-form border-0 py-5 bg-dark w-100"
+                  ? "card2 card edit-profile-form border-0 w-100"
+                  : "card2 card edit-profile-form border-0 bg-dark w-100"
               }
               onSubmit={(e) => {
                 e.preventDefault();
@@ -72,8 +86,31 @@ const EditProfile = () => {
               }}
             >
               <div className="flex-col px-3">
+                <div className="d-flex justify-content-start align-items-center">
+                  <Image
+                    src={userProfileDetails.profileImg}
+                    roundedCircle
+                    width={50}
+                    height={50}
+                    className="me-3 my-2 object-fit-cover"
+                  />
+                  <label htmlFor="add-image" className="my-2 btn btn-info d-flex">
+                      Upload
+                      <AddPhotoAlternateIcon />
+                    <input
+                      id="add-image"
+                      type="file"
+                      accept=".png, .jpeg, .jpg"
+                      hidden
+                      onChange={(e) => {
+                        e.preventDefault;
+                        fileToURL();
+                      }}
+                    />
+                  </label>
+                </div>
                 <label htmlFor="firstname" className="mb-1 input-required">
-                  <p className="mb-1 text-sm d-inline">First Name</p>
+                  <p className="my-1 text-sm d-inline">First Name</p>
                 </label>
                 <input
                   id="firstname"
@@ -122,6 +159,7 @@ const EditProfile = () => {
                   id="userbio"
                   placeholder="Update bio"
                   required
+                  maxLength="150"
                   value={userProfileDetails.userBio}
                   onChange={(e) =>
                     setUserProfileDetails({

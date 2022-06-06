@@ -102,11 +102,11 @@ const NavigationTop = () => {
               <Nav.Link>
                 <Image
                   alt="user profile image"
-                  src={dummyProfile}
+                  src={user.profileImg}
                   roundedCircle
                   width={30}
                   height={30}
-                  className="mx-3 my-2 img-fluid"
+                  className="mx-3 my-2 object-fit-cover"
                 />
               </Nav.Link>
             </LinkContainer>

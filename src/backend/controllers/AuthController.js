@@ -2,6 +2,7 @@ import { v4 as uuid } from "uuid";
 import { Response } from "miragejs";
 import { formatDate } from "../utils/authUtils";
 const sign = require("jwt-encode");
+import { dummyProfile } from "assets";
 
 /**
  * All the routes related to Auth are present here.
@@ -40,6 +41,7 @@ export const signupHandler = function (schema, request) {
       followers: [],
       following: [],
       bookmarks: [],
+      profileImg: dummyProfile,
     };
     const createdUser = schema.users.create(newUser);
     const encodedToken = sign(

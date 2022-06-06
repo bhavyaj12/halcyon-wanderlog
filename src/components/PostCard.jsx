@@ -36,15 +36,14 @@ const PostCard = ({ post }) => {
   const {
     _id,
     content,
-    likes: { likedBy, dislikedBy, likeCount },
+    likes: { likedBy, likeCount },
     username,
-    firstName,
-    lastName,
-    updatedAt,
+    createdAt,
     postImage,
     comments,
+    profileImg,
   } = post;
-
+  
   const checkUserLikes = () => {
     return likedBy.find((userInList) => userInList.username === user.username)
       ? true
@@ -121,32 +120,40 @@ const PostCard = ({ post }) => {
 
   const goToUserProfile = (username) => {
     navigate(`/profile/${username}`);
-  }
+  };
 
   return (
-    <Link to={`/post/${_id}`}
-      className={theme === "light" ? "card post-card bg-light m-4" : "card post-card bg-dark m-4"}
+    <Link
+      to={`/post/${_id}`}
+      className={
+        theme === "light"
+          ? "card post-card bg-light m-4"
+          : "card post-card bg-dark m-4"
+      }
     >
       <div className="card-body">
         <div className="post-user my-2">
-            <Image
-              src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
-              roundedCircle
-              width={50}
-              height={50}
-              className="mx-3 my-2 img-fluid"
-            />
-            <div className="flex-col link-no-decor" onClick={(e) => {
+          <Image
+            src={username === user.username ? user.profileImg : profileImg}
+            roundedCircle
+            width={50}
+            height={50}
+            className="mx-3 my-2 object-fit-cover"
+          />
+          <div
+            className="flex-col link-no-decor"
+            onClick={(e) => {
               e.preventDefault();
-              goToUserProfile(username)}}>
-              <span className="mx-3 name-bold">
-                {firstName} {lastName}{" "}
-                <span className="post-date mx-3">
-                  {dayjs(new Date(updatedAt)).format("HH:mm:ss, ddd, DD/MM/YYYY")}
-                </span>
+              goToUserProfile(username);
+            }}
+          >
+            <span className="mx-3 name-bold">
+              @{username}
+              <span className="post-date mx-3">
+                {dayjs(new Date(createdAt)).format("HH:mm:ss, ddd, DD/MM/YYYY")}
               </span>
-              <span className="mx-3 user-name">@{username}</span>
-            </div>
+            </span>
+          </div>
           {user.username === username && (
             <div className="post-user-actions flex-row-centre">
               <button
@@ -181,7 +188,7 @@ const PostCard = ({ post }) => {
               alt="post image"
               src={postImage}
               fluid
-              className="mx-3 my-2"
+              className="mx-3 my-2 object-fit-cover"
             />
           </div>
         )}
@@ -219,7 +226,9 @@ const PostCard = ({ post }) => {
             >
               <ForumOutlinedIcon />
             </button>
-            <span className="mx-1">{comments.length > 0 ? comments.length : 0}</span>
+            <span className="mx-1">
+              {comments.length > 0 ? comments.length : 0}
+            </span>
           </div>
           <div className="flex-row-centre">
             {checkUserBookmarks() ? (

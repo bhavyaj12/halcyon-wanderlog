@@ -9,5 +9,6 @@ import PostModal from "./PostModal";
 import CommentForm from "./CommentForm";
 import CommentsBox from "./CommentsBox";
 import EditProfile from "./EditProfile";
+import FilterButtons from "./FilterButtons";
 
-export { NavigationTop, Footer, NavSide, AddPost, PostCard, SuggestionList, Toast, PostModal, CommentForm, CommentsBox, EditProfile };
+export { NavigationTop, Footer, NavSide, AddPost, PostCard, SuggestionList, Toast, PostModal, CommentForm, CommentsBox, EditProfile, FilterButtons };

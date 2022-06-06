@@ -80,6 +80,15 @@
   border: 1px solid var(--social-secondary);
 }
 
+.filter-container {
+  width: 60%;
+}
+
+.filter-options {
+  right: 0;
+  z-index: 5;
+}
+
 @media screen and (min-width: 1200px) {
   .comments-card .post-user-actions {
     margin-left: 8rem;

@@ -12,7 +12,7 @@ import {
   SHOW_PROFILE_MODAL,
   followUser,
   unfollowUser,
-  getAllUsers
+  getAllUsers,
 } from "redux-reducers";
 import { useToast } from "custom-hooks";
 import { useTheme } from "theme-context";
@@ -20,12 +20,11 @@ import { useTheme } from "theme-context";
 const ProfilePage = () => {
   const { theme } = useTheme();
   const { token, user } = useSelector(getAuth);
-  const { posts } = useSelector(getPost);
   const { userProfile, userPosts } = useSelector(getUserProfile);
   const { username } = useParams();
   const { showToast } = useToast();
   const dispatch = useDispatch();
-  const { users } = useSelector(getAllUsers); 
+  const { users } = useSelector(getAllUsers);
 
   const {
     _id,
@@ -35,23 +34,22 @@ const ProfilePage = () => {
     following,
     userBio,
     portfolio,
-  } = userProfile; 
+    profileImg,
+  } = userProfile;
 
   const [userPostsLoading, setUserPostsLoading] = useState(true);
-  
-  useEffect(() => {
-    dispatch(fetchUserPosts({ username: username }));
-  }, [posts])
 
   useEffect(() => {
     (async () => {
       try {
-        const response = await dispatch(fetchUserProfile({ username: username }));
+        const response = await dispatch(
+          fetchUserProfile({ username: username })
+        );
         if (response.error) {
           throw new Error("Error in loading user profile");
         }
       } catch (error) {
-        console.log(error.message);
+        showToast("error", error.message);
       }
     })();
     (async () => {
@@ -62,20 +60,19 @@ const ProfilePage = () => {
         }
         setUserPostsLoading(false);
       } catch (error) {
-        console.log(error.message);
+        showToast("error", error.message);
       }
     })();
   }, [users, username]);
 
-  const checkFollowed = () => followers?.some((listUser) => listUser.username === user.username);
+  const checkFollowed = () =>
+    followers?.some((listUser) => listUser.username === user.username);
 
   const followUnfollowHandler = async () => {
     try {
-      const response = checkFollowed() ? await dispatch(
-        unfollowUser({ token, userId: _id, dispatch})
-      ) : await dispatch(
-        followUser({ token, userId: _id, dispatch})
-      );
+      const response = checkFollowed()
+        ? await dispatch(unfollowUser({ token, userId: _id, dispatch }))
+        : await dispatch(followUser({ token, userId: _id, dispatch }));
       if (response.error) {
         throw new Error(response.error);
       }
@@ -83,14 +80,14 @@ const ProfilePage = () => {
       showToast("error", "Can't follow user. Try again later.");
     }
   };
-  
+
   const editProfileHandler = () => {
     dispatch(SHOW_PROFILE_MODAL());
   };
 
   return (
     <div>
-      <section className="social-main-content"> 
+      <section className="social-main-content">
         <NavSide />
         <div className="posts-wrapper">
           <div
@@ -100,35 +97,36 @@ const ProfilePage = () => {
                 : "user-profile my-4 bg-dark p-2"
             }
           >
-            <div className="d-flex justify-content-center align-items-center my-2">
+            <div className="flex-col justify-content-center align-items-center">
               <Image
-                src="https://www.shareicon.net/data/128x128/2016/07/05/791214_man_512x512.png"
+                src={profileImg}
                 roundedCircle
-                width={80}
-                height={80}
-                className="m-3 my-2 img-fluid"
+                width={200}
+                height={200}
+                className="m-3 my-2 object-fit-cover"
               />
-              <div className="flex-col">
-                <span className="mx-3 name-bold">
-                  {firstName} {lastName}{" "}
-                  <span className="post-date mx-3"></span>
-                </span>
-                <span className="mx-3 user-name">@{username}</span>
-              </div>
-              {user.username === username && <button
-                type="submit"
-                className="btn btn-info btn-sm"
-                onClick={editProfileHandler}
-              >
-                Edit Profile
-              </button>}
-              {user.username !== username && <button
-                type="button"
-                className="btn btn-info btn-sm"
-                onClick={followUnfollowHandler}
-              >
-                {checkFollowed() ? "Following" : "Follow"}
-              </button>}
+              <span className="mx-3 name-bold">
+                {firstName} {lastName}{" "}
+              </span>
+              <span className="my-2 mx-3 user-name">@{username}</span>
+              {user.username === username && (
+                <button
+                  type="submit"
+                  className="my-2 mx-3 btn btn-info btn-sm"
+                  onClick={editProfileHandler}
+                >
+                  Edit Profile
+                </button>
+              )}
+              {user.username !== username && (
+                <button
+                  type="button"
+                  className="my-2 mx-3 btn btn-info btn-sm"
+                  onClick={followUnfollowHandler}
+                >
+                  {checkFollowed() ? "Following" : "Follow"}
+                </button>
+              )}
             </div>
             <div className="my-5">
               <p className="mx-3 user-bio mt-5">
@@ -142,13 +140,22 @@ const ProfilePage = () => {
                 </a>
               </p>
               <p className="mx-3 user-bio mt-2 d-flex justify-content-between align-items-center">
-                <span className="fw-bolder">{userPostsLoading ? 0 : userPosts.length} Posts </span>
-                <span className="fw-bolder">{followers?.length} Followers </span>
-                <span className="fw-bolder">{following?.length} Following </span>
+                <span className="fw-bolder">
+                  {userPostsLoading ? 0 : userPosts.length} Posts
+                </span>
+                <span className="fw-bolder">
+                  {followers?.length} Followers
+                </span>
+                <span className="fw-bolder">
+                  {following?.length} Following
+                </span>
               </p>
             </div>
           </div>
-          {userPosts.length > 0 && userPosts.map((post) => <PostCard key={post._id} post={post}/>)}
+          {userPosts.length > 0 &&
+            [...userPosts]
+              .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+              .map((post) => <PostCard key={post._id} post={post} />)}
         </div>
         <SuggestionList />
       </section>
