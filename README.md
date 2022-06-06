@@ -6,9 +6,11 @@
       Wanderlog is a social media application for travel enthusiasts! Follow along with your friends posting about their travel including pictures and tips,          hidden gems. Get inspired to start and share your own solo travel journey.
     <br />
     <br />
-[![Netlify Status](https://api.netlify.com/api/v1/badges/808e1c23-26f4-4651-bdad-5a0d8a11b0d4/deploy-status)](https://app.netlify.com/sites/wanderlog-social/deploys)
   </p>
 </div>
+
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/808e1c23-26f4-4651-bdad-5a0d8a11b0d4/deploy-status)](https://app.netlify.com/sites/wanderlog-social/deploys)
 
 ## Preview
 
