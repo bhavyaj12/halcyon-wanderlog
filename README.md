@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+<div align="center">
+   <img src="src/assets/icons-logos/social-logo.svg" width="300" height="auto">
+   <h2 align="center">Wanderlog Social Media App</h2>
+  </a>
+  <p align="center">  
+      Wanderlog is a social media application for travel enthusiasts! Follow along with your friends posting about their travel including pictures and tips,          hidden gems. Get inspired to start and share your own solo travel journey.
+    <br />
+    <br />
+[![Netlify Status]()
+  </p>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Preview
 
-## Available Scripts
+## Features
+- It is made using [Bootstrap](https://getbootstrap.com/)
+- This is a frontend social media project created using the mock backend [mockBee](https://github.com/neogcamp/mockBee).
+- Contains modular React components for reuse throughout the project
+- Easy to use website
+- 100% Responsive
+- Modern and clean design
+- Dark mode - Light mode toggle
 
-In the project directory, you can run:
+## Project Pages and Functionality
+-  Home Page
+> - Landing page with hero image, footer, cta button, and easy to navigate navbar
 
-### `yarn start`
+- Authentication
+> - Login and Sign Up features that will allow profile creation, post creation, follow-unfollow and bookmarks
+> - After successful login, user can see a logout button on the navbar
+> - A hide-show icon button that shows or hides password.
+> - Sign-up page from where user can sign-up using email, first name, last name, password & confirm password.
+> - User can logout and new user can login
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Home Feed Page
+> - User can create posts with images from here
+> - Posts can be sorted by date or trending
+> - Suggested Users sidebar to follow unfollow users
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Post Features
+> - All posts can be liked, unliked, bookmarked and commented on
 
-### `yarn test`
+- Edit/Delete Posts
+> - Logged in user can edit and delete their post
+> - Editing post opens up a modal for editing the post from where image can be deleted or text content can be changed
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Bookmarks Page
+> - Posts which are bookmarked show up here
+> - Posts can be removed from bookmarks
 
-### `yarn build`
+- Explore Page
+> - All posts from the user, followed users as well as unfollowed users can be seen here sorted by latest
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Single Post Page and comments
+> - Clicking on a post leads to single post page 
+> - All comments can be seen here sorted by latest
+> - New comments can be added
+> - User can edit or delete their comment
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- User Profile Page
+> - A profile page with all user details can be seen here
+> - User can edit their profile, add a bio and portfolio links as well as a profile picture
+> - Profile picture can be changed multiple times
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features to be added (Work in Progress)
+- Searching users/posts
+- Share posts
 
-### `yarn eject`
+## Features that will improve the project
+- Custom backend with database for data persistence
+- Notifications
+- Stories
+- Chat
+- Cover image in profile
+- Infinite Scroll
+- Follow hashtags
+- Draft post
+- Archive post
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Tech Stack
+- React.js
+- JavaScript
+- Redux
+- Bootstrap 5
+- React Bootstrap
+- React Router
+- React Router Bootstrap
+- HTML
+- CSS
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Run Locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Clone the project
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+  git clone https://github.com/bhavyaj12/halcyon-wanderlog.git
+```
 
-## Learn More
+## Contribute!
+This project is meant to be open source! Do feel free to add bugs and fork the repo for contribution. Here's how you can contribute:
+- Fork the project repository
+- Clone your fork
+- Create a new branch with a proper feature name, in your local repo
+- Make chages, commit and push
+- Raise a Pull Request
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Liked the project? Do please ⭐ it :)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Authors
 
-### Code Splitting
+- [@bhavyaj12](https://github.com/bhavyaj12)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## 🔗 Links
+- I am currently looking for a job/internship opportunity. Ping me here:-
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/bhavzlearn) 
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhavya-joshi-438178184)
