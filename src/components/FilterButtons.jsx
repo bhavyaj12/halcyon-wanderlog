@@ -6,7 +6,7 @@ import { FilterListOutlinedIcon } from "assets";
 const FilterButtons = () => {
   const [showFilters, setShowFilters] = useState(false);
   const { sortBy } = useSelector(getPost);
-  const dispatch = useDispatch(useDispatch);
+  const dispatch = useDispatch();
 
   const selectSortHandler = (sortOption) => {
     dispatch(setSortBy(sortOption));
