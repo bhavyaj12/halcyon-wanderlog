@@ -106,6 +106,10 @@ const editCommentService = (token, postId, commentId, commentData) => {
   );
 };
 
+const fetchSinglePostService = (postId) => {
+  return axios.get(`/api/posts/${postId}`);
+}
+
 export {
   fetchPostsService,
   addPostService,
@@ -119,4 +123,5 @@ export {
   commentOnPostService,
   deleteCommentService,
   editCommentService,
+  fetchSinglePostService
 };
