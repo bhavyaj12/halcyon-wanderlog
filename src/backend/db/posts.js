@@ -22,14 +22,7 @@ export const posts = [
       "This is a very famous lake in Ladakh. Pangong Lake, situated at a height of almost 4,350m, is the world's highest saltwater lake. Its water, which seems to be dyed in blue, stand in stark contrast to the arid mountains surrounding it. Extending to almost 160km, one-third of the Pangong Lake lies in India and the other two-thirds in China. Must visit!",
     likes: {
       likeCount: 2,
-      likedBy: [
-        {
-          username: "krutijoshi",
-        },
-        {
-          username: "sharanyaagarwal",
-        },
-      ],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "guestguest",
@@ -66,23 +59,7 @@ export const posts = [
       "Share this with your Ladakh gang! -> Zal Homestay, Leh. It was my home in Leh, and it was beautiful! I worked out of here, took my zoom calls and created my videos. Everything worked seamlessly. They have an amazing common room to chill and work out of. Lots of privacy when you need it, but can also end up making new friends here. It's around a 10 minute walk from the main market. My room was lovely and I've been dreaming to go back",
     likes: {
       likeCount: 5,
-      likedBy: [
-        {
-          username: "guestguest",
-        },
-        {
-          username: "krutijoshi",
-        },
-        {
-          username: "sharanyaagarwal",
-        },
-        {
-          username: "danabramov",
-        },
-        {
-          username: "andrewgarfield",
-        },
-      ],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "bhavyajoshi",
@@ -110,11 +87,7 @@ export const posts = [
       "5 things you must know before renting a car here in the US. I have rented out several cars so far, and I have a thing or two to tell you for sure! - If you are an Indian tourist, you do not need an international driving permit to rent a car. But you may have to be over 21/25 to rent it, based on the rules of different companies. - You can rent from many companies like Hertz, Enterprise etc. and some even peer-to-peer companies like Turo. Always check for competitive pricing, or ask your friends around who work in the US, if their companies provide them with an employee discount that you can borrow. I also came to know of the last point on this trip itself. - Refuelling can be a real pain for us guys, because let us face it, we never even have to get out of our cars in India. But doing it yourself is not that difficult. Just swipe your international card, remove nozzle, insert nozzle in fuel tank opening, select fuel type and begin. Replace nozzle! - Please do read up about important rules like right of way, merging into the highway, stop signs, when to yield etc. and atleast practice for a day with someone local. The last point is optional, but it really helped me get started. - Lastly, if you are sharing the car driving time with someone, you need to add an additional driver. Sometimes that is chargeable per day with some rental companies. But, you can get that done for free if you take up an aforementioned employee discount or if you have some privileges from using a certain credit card or car company!",
     likes: {
       likeCount: 1,
-      likedBy: [
-        {
-          username: "guestguest",
-        },
-      ],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "bhavyajoshi",
@@ -160,20 +133,7 @@ export const posts = [
       "The view from camp number 2 in Litham (11737 ft). It had started snowing slightly, and I saw 2 rebel horses shooed away from around the kitchen tent. The stream near the campsite was a bliss to listen to.",
     likes: {
       likeCount: 4,
-      likedBy: [
-        {
-          username: "zendaya",
-        },
-        {
-          username: "sharanyaagarwal",
-        },
-        {
-          username: "danabramov",
-        },
-        {
-          username: "andrewgarfield",
-        },
-      ],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "krutijoshi",
@@ -211,11 +171,7 @@ export const posts = [
       "Sky diving was definitely one of the best experiences I've had in my life! It felt wonderful to let go and drop from 15000 ft. Moreover, I got a beautiful bird's eye view over Boulder City. Thanks a ton Morro and @skydivelasvegas!",
     likes: {
       likeCount: 1,
-      likedBy: [
-        {
-          username: "sharanyaagarwal",
-        },
-      ],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "krutijoshi",
@@ -243,17 +199,7 @@ export const posts = [
     content: "Sightseeing on top of the world",
     likes: {
       likeCount: 3,
-      likedBy: [
-        {
-          username: "krutijoshi",
-        },
-        {
-          username: "sharanyaagarwal",
-        },
-        {
-          username: "bhavyajoshi",
-        },
-      ],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "zendaya",
@@ -291,14 +237,7 @@ export const posts = [
       "When in San Francisco , one activity I would definitely recommend is cycling across the Golden Gate Bridge. It wasn't easy, but it was exhilarating! Just rent a cycle, cross the bridge, rush down the slope and grab a ferry to take you back.",
     likes: {
       likeCount: 2,
-      likedBy: [
-        {
-          username: "andrewgarfield",
-        },
-        {
-          username: "aloysobeck",
-        },
-      ],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "zendaya",
@@ -345,7 +284,7 @@ export const posts = [
     content: "Coding while traveling, yes or no?",
     likes: {
       likeCount: 1,
-      likedBy: [{ username: "aloysobeck" }],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "danabramov",
@@ -374,11 +313,7 @@ export const posts = [
       "Another gem in Andhra, the gorge view in Gandikota is breathtaking. It's called the Grand Canyon of India. Gandikota in itself was beautiful. We went there in the evening and reached the gorge by 5 p.m. It was pleasant and windy, and I wish we'd had more time to spend there. If you like climbing rocks, you're going to have an added advantage.The only drawback of Gandikota is that there's not a lot of other things to see around the place and it's a long drive from Hyderabad. They do have camps set up there, so you can drive down, camp there at night, and visit Belum caves on your way back.",
     likes: {
       likeCount: 3,
-      likedBy: [
-        { username: "aloysobeck" },
-        { username: "danabramov" },
-        { username: "bhavyajoshi" },
-      ],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "andrewgarfield",
@@ -416,7 +351,7 @@ export const posts = [
       "The Marina Bay Sands Sky Park observation deck, located on the 57th floor, is something that I definitely will recommend. If possible, the deck should be your first stop in Singapore. With spectacular views of the city and information about everything that you can see from the deck, it will give an idea of what all there is to see in Singapore. Some people do prefer to go on the Singapore Flyer. I chose the Sky Park, because it was at a greater height than the flyer, and the ticket was cheaper too. Whatever you choose, at least one of these two are a must visit. And if you're feeling up to it, visit both! Don't forget to let me know which was better, though.",
     likes: {
       likeCount: 2,
-      likedBy: [{ username: "krutijoshi" }, { username: "bhavyajoshi" }],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "andrewgarfield",
@@ -444,7 +379,7 @@ export const posts = [
       "If you really want to appreciate the beauty of a place, one thing you must do, is just walk down the streets. We were walking down to the Lau Pa Sat food centre when we saw the incredible and iconic Singapore landscape.",
     likes: {
       likeCount: 1,
-      likedBy: [{ username: "krutijoshi" }],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "aloysobeck",
@@ -472,12 +407,7 @@ export const posts = [
     content: "Travelling in a train with your dog is amazing!",
     likes: {
       likeCount: 4,
-      likedBy: [
-        { username: "krutijoshi" },
-        { username: "zendaya" },
-        { username: "andrewgarfield" },
-        { username: "guestguest" },
-      ],
+      likedBy: [],
       dislikedBy: [],
     },
     username: "aloysobeck",
