@@ -14,6 +14,10 @@
 
 ## Preview
 
+
+https://user-images.githubusercontent.com/59730227/172383379-f5f5d7ab-956b-40b3-95ea-be8888c2270b.mp4
+
+
 ## Features
 - It is made using [Bootstrap](https://getbootstrap.com/)
 - This is a frontend social media project created using the mock backend [mockBee](https://github.com/neogcamp/mockBee).
