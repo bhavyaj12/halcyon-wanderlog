@@ -52,6 +52,7 @@ const allUsersSlice = createSlice({
   name: "allUsers",
   initialState: {
     users: [],
+    usersLoading: false,
   },
   reducers: {},
   extraReducers: {
@@ -69,6 +70,10 @@ const allUsersSlice = createSlice({
     },
     [fetchAllUsers.fulfilled]: (state, action) => {
       state.users = action.payload;
+      state.usersLoading = false;
+    },
+    [fetchAllUsers.pending]: (state, action) => {
+      state.usersLoading = true;
     },
   },
 });

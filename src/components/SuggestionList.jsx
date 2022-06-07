@@ -14,7 +14,7 @@ import { useTheme } from "theme-context";
 const SuggestionList = () => {
   const { theme } = useTheme();
   const { user, token } = useSelector(getAuth);
-  const { users } = useSelector(getAllUsers);
+  const { users, usersLoading } = useSelector(getAllUsers);
   const { showToast } = useToast();
   const dispatch = useDispatch();
 
@@ -38,7 +38,9 @@ const SuggestionList = () => {
       users.filter(
         (listUser) =>
           listUser.username !== user.username &&
-          !user.following?.find((account) => account.username === listUser.username)
+          !user.following?.find(
+            (account) => account.username === listUser.username
+          )
       )
     );
   }, [users, user]);
@@ -65,10 +67,7 @@ const SuggestionList = () => {
       }
     >
       <h5 className="mt-4">Suggestions for you</h5>
-      {suggestionsList.length === 0 ? (
-        <div className="alert alert-danger my-3">No More Users</div>
-      ) : (
-        suggestionsList.map((userAcc) => (
+      {usersLoading ?  <div className="alert alert-info my-3">Loading...</div>: suggestionsList?.map((userAcc) => (
           <div
             className="my-3 d-flex justify-content-between align-items-center"
             key={userAcc._id}
@@ -101,8 +100,7 @@ const SuggestionList = () => {
               </button>
             </div>
           </div>
-        ))
-      )}
+        ))}
     </div>
   );
 };
