@@ -7,7 +7,7 @@ import { NavSide, PostCard, SuggestionList } from "components";
 const ExplorePage = () => {
   const { token } = useSelector(getAuth);
   const dispatch = useDispatch();
-  const { posts } = useSelector(getPost);
+  const { posts, postsLoading } = useSelector(getPost);
   const { showToast } = useToast();
 
   const [explorePosts, setExplorePosts] = useState([]);
@@ -23,19 +23,19 @@ const ExplorePage = () => {
         showToast("error", error.message);
       }
     })();
-  }, [token]);
+  }, [token, dispatch]);
 
   useEffect(() => {
     setExplorePosts([...posts].sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
     ));
-  }, [token]);
+  }, [token, posts]);
 
   return (
     <section className="social-main-content">
       <NavSide />
       <div className="posts-wrapper">
-        {explorePosts.length > 0 &&
+        {postsLoading ? <div className="my-4 alert alert-primary">Loading...</div> : explorePosts.length > 0 &&
           explorePosts.map((post) => <PostCard key={post._id} post={post} />)}
       </div>
       <SuggestionList />

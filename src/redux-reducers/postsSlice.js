@@ -181,6 +181,7 @@ const postsSlice = createSlice({
     posts: [],
     bookmarks: [],
     sortBy: "LATEST",
+    postsLoading: false,
   },
   reducers: {
     setSortBy: (state, action) => {
@@ -190,15 +191,27 @@ const postsSlice = createSlice({
   extraReducers: {
     [fetchPosts.fulfilled]: (state, action) => {
       state.posts = action.payload;
+      state.postsLoading = false;
+    },
+    [fetchPosts.pending]: (state, action) => {
+      state.postsLoading = true;
     },
     [addPost.fulfilled]: (state, action) => {
       state.posts = action.payload;
+      state.postsLoading = false;
+    },
+    [addPost.pending]: (state, action) => {
+      state.postsLoading = true;
     },
     [editPost.fulfilled]: (state, action) => {
       state.posts = action.payload;
     },
     [deletePost.fulfilled]: (state, action) => {
       state.posts = action.payload;
+      state.postsLoading = false;
+    },
+    [deletePost.pending]: (state, action) => {
+      state.postsLoading = true;
     },
     [likePost.fulfilled]: (state, action) => {
       state.posts = action.payload;
