@@ -2,11 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import {
   addPost,
-  getPost,
   editPost,
   getAuth,
   getPostModal,
-  SET_POST_TO_EDIT,
   HIDE_MODAL,
 } from "redux-reducers";
 import { Image } from "react-bootstrap";
@@ -76,7 +74,9 @@ const AddPost = ({ modal }) => {
     };
 
     try {
-      const response = await dispatch(editPost({ token, postData, postId: postToEdit._id }));
+      const response = await dispatch(
+        editPost({ token, postData, postId: postToEdit._id })
+      );
       if (response.error) {
         throw new Error(response.payload);
       }
@@ -105,7 +105,13 @@ const AddPost = ({ modal }) => {
   };
 
   return (
-    <form className={theme === "light" ? "card add-post-card bg-light m-4" : "card add-post-card bg-dark m-4"}>
+    <form
+      className={
+        theme === "light"
+          ? "card add-post-card bg-light m-4"
+          : "card add-post-card bg-dark m-4"
+      }
+    >
       <div className="card-header">What's Happening?</div>
       <div className="card-body">
         <div className="d-flex justify-content-center align-items-center gap-2">
@@ -125,16 +131,18 @@ const AddPost = ({ modal }) => {
           />
         </div>
         <div className="post-footer-icons">
-          {!isPostEditing && <label htmlFor="add-image">
-            <AddPhotoAlternateIcon role="button" />
-            <input
-              id="add-image"
-              type="file"
-              accept=".png, .jpeg, .jpg"
-              hidden
-              onChange={fileToURL}
-            />
-          </label>}
+          {!isPostEditing && (
+            <label htmlFor="add-image">
+              <AddPhotoAlternateIcon role="button" />
+              <input
+                id="add-image"
+                type="file"
+                accept=".png, .jpeg, .jpg"
+                hidden
+                onChange={fileToURL}
+              />
+            </label>
+          )}
 
           {addPostImage !== "" && (
             <div className="position-relative">
@@ -148,7 +156,9 @@ const AddPost = ({ modal }) => {
               <button
                 className={
                   theme === "light"
-                    ? "btn-no-decor" : "btn-no-decor dark-icon-btn"}
+                    ? "btn-no-decor"
+                    : "btn-no-decor dark-icon-btn"
+                }
                 onClick={() => setAddPostImage("")}
               >
                 <CancelIcon />
@@ -173,11 +183,17 @@ const AddPost = ({ modal }) => {
               </button>
             )
           ) : isPostEditing ? (
-            <button onClick={editPostHandler} className="btn btn-info btn-sm px-4 me-md-2">
+            <button
+              onClick={editPostHandler}
+              className="btn btn-info btn-sm px-4 me-md-2"
+            >
               Save Post
             </button>
           ) : (
-            <button onClick={addPostHandler} className="btn btn-info btn-sm px-4 me-md-2">
+            <button
+              onClick={addPostHandler}
+              className="btn btn-info btn-sm px-4 me-md-2"
+            >
               Post
             </button>
           )}

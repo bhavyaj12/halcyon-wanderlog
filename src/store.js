@@ -1,5 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { authReducer, modalForPostReducer, postsReducer, profileEditModalReducer, userProfileReducer, allUsersReducer } from "redux-reducers";
+import {
+  authReducer,
+  modalForPostReducer,
+  postsReducer,
+  profileEditModalReducer,
+  userProfileReducer,
+  allUsersReducer,
+} from "redux-reducers";
 
 const store = configureStore({
   reducer: {

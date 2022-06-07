@@ -12,7 +12,7 @@ import {
 const UserHome = () => {
   const { token, user } = useSelector(getAuth);
   const dispatch = useDispatch();
-  const { posts, sortBy } = useSelector(getPost);
+  const { posts, sortBy, postsLoading } = useSelector(getPost);
 
   const [postsOfFollowing, setPostsOfFollowing] = useState([]);
 
@@ -27,7 +27,7 @@ const UserHome = () => {
         showToast("error", error.message);
       }
     })();
-  }, [user]);
+  }, [user, dispatch]);
 
   useEffect(() => {
     const filterByFollowing = posts.filter(
@@ -67,10 +67,17 @@ const UserHome = () => {
       <div className="posts-wrapper">
         <AddPost />
         <FilterButtons />
-        {postsOfFollowing.length > 0 &&
+        {postsLoading ? (
+          <div className="my-4 alert alert-info">Loading...</div>
+        ) : postsOfFollowing.length > 0 ? (
           postsOfFollowing.map((post) => (
             <PostCard key={post._id} post={post} />
-          ))}
+          ))
+        ) : (
+          <div className="my-4 alert alert-danger">
+            You have not added any posts
+          </div>
+        )}
       </div>
       <SuggestionList />
     </section>

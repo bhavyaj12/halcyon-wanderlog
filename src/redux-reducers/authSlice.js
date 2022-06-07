@@ -1,8 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  loginService,
-  signupService,
-} from "services";
+import { loginService, signupService } from "services";
 
 const initialState = {
   isAuth: localStorage.getItem("WANDERLOG_AUTH_TOKEN") ? true : false,
@@ -55,10 +52,10 @@ const authSlice = createSlice({
       localStorage.removeItem("WANDERLOG_AUTH_TOKEN");
       localStorage.removeItem("wanderlog_user");
     },
-	editLoggedInUserProfile: (state, action) => {
-		state.user = { ...state.user, ...action.payload };
-		localStorage.setItem("wanderlog_user", JSON.stringify(state.user));
-	},
+    editLoggedInUserProfile: (state, action) => {
+      state.user = { ...state.user, ...action.payload };
+      localStorage.setItem("wanderlog_user", JSON.stringify(state.user));
+    },
   },
   extraReducers: (builder) => {
     builder

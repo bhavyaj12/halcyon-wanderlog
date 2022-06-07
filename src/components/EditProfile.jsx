@@ -4,7 +4,6 @@ import { Image } from "react-bootstrap";
 import {
   getAuth,
   getProfileModal,
-  getUserProfile,
   HIDE_PROFILE_MODAL,
   updateUserProfile,
   editLoggedInUserProfile,
@@ -94,9 +93,12 @@ const EditProfile = () => {
                     height={50}
                     className="me-3 my-2 object-fit-cover"
                   />
-                  <label htmlFor="add-image" className="my-2 btn btn-info d-flex">
-                      Upload
-                      <AddPhotoAlternateIcon />
+                  <label
+                    htmlFor="add-image"
+                    className="my-2 btn btn-info d-flex"
+                  >
+                    Upload
+                    <AddPhotoAlternateIcon />
                     <input
                       id="add-image"
                       type="file"

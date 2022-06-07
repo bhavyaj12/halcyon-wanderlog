@@ -1,14 +1,14 @@
 .image-404-container {
-    gap: 2rem;
+  gap: 2rem;
 }
 
 .error-404-img {
-    margin: 0 auto;
-    width: 50%;
+  margin: 0 auto;
+  width: 50%;
 }
 
 .alert.alert-container.alert-error {
-    font-size: 1.4rem;
-    text-align: center;
-    color: var(--theme-light-font);
+  font-size: 1.4rem;
+  text-align: center;
+  color: var(--theme-light-font);
 }

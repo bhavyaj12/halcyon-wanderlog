@@ -1,21 +1,31 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { PostCard, CommentsBox, NavSide, SuggestionList } from "components";
 import { getPost } from "redux-reducers";
+import { useToast } from "custom-hooks";
+import { fetchSinglePostService } from "services";
 
 const SinglePost = () => {
   const { postId } = useParams();
   const navigate = useNavigate();
   const { posts } = useSelector(getPost);
+  const { showToast } = useToast();
 
   const [singlePost, setSinglePost] = useState(null);
-  const fetchPost = (posts, postId) => {
-    return posts.find((post) => post._id === postId);
-  };
 
   useEffect(() => {
-    setSinglePost(fetchPost(posts, postId));
+    (async () => {
+      try {
+        const {
+          data: { post },
+        } = await fetchSinglePostService(postId);
+        setSinglePost(post);
+      } catch (error) {
+        showToast("error", "Can't fetch the post, try again later.");
+      }
+    })();
   }, [posts, postId]);
 
   return (

@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getAuth,
@@ -36,19 +37,20 @@ const PostCard = ({ post }) => {
   const {
     _id,
     content,
-    likes: { likedBy, likeCount },
+    likes: { likeCount, likedBy },
     username,
     createdAt,
     postImage,
     comments,
     profileImg,
   } = post;
-  
+
   const checkUserLikes = () => {
     return likedBy.find((userInList) => userInList.username === user.username)
       ? true
       : false;
   };
+
   const checkUserBookmarks = () => {
     return bookmarks.find((postId) => postId === _id) ? true : false;
   };
@@ -80,11 +82,13 @@ const PostCard = ({ post }) => {
   const likeHandler = async (e) => {
     e.preventDefault();
     try {
-      const response = checkUserLikes()
-        ? await dispatch(dislikePost({ token, postId: _id }))
-        : await dispatch(likePost({ token, postId: _id }));
+    if(checkUserLikes()) {
+      const response = await dispatch(dislikePost({ token, postId: _id }));
+    } else {
+      const response = await dispatch(likePost({ token, postId: _id }));
+    }
       if (response.error) {
-        throw new Error(response.payload);
+        throw new Error(response.error);
       }
     } catch (error) {
       if (error.message.includes("404"))
@@ -147,12 +151,10 @@ const PostCard = ({ post }) => {
               goToUserProfile(username);
             }}
           >
-            <span className="mx-3 name-bold">
-              @{username}
-            </span>
+            <span className="mx-3 name-bold">@{username}</span>
             <span className="post-date mx-3">
-                {dayjs(new Date(createdAt)).format("HH:mm:ss, ddd, DD/MM/YYYY")}
-              </span>
+              {dayjs(new Date(createdAt)).format("HH:mm:ss, ddd, DD/MM/YYYY")}
+            </span>
           </div>
           {user.username === username && (
             <div className="post-user-actions flex-row-centre">
