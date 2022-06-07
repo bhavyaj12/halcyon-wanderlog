@@ -48,5 +48,5 @@ export {
   updateUserProfileService,
   followUserService,
   unfollowUserService,
-  fetchAllUsersService
+  fetchAllUsersService,
 };

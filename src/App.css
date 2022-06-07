@@ -104,17 +104,28 @@ p.lead {
   height: auto;
 }
 
-.App.dark a.card.post-card,  .App.dark a.post-user, .App.dark a.link-no-decor, .App.dark div.link-no-decor {
+.App.dark a.card.post-card,
+.App.dark a.post-user,
+.App.dark a.link-no-decor,
+.App.dark div.link-no-decor {
   color: var(--white-color);
   text-decoration: none;
 }
 
-.App.light a.card.post-card, .App.light a.post-user, .App.light a.link-no-decor, .App.light div.link-no-decor {
+.App.light a.card.post-card,
+.App.light a.post-user,
+.App.light a.link-no-decor,
+.App.light div.link-no-decor {
   color: var(--black-dark);
   text-decoration: none;
 }
 
-.App.light a.post-user:hover, .App.dark a.post-user:hover, .App.dark a.link-no-decor:hover, .App.light a.link-no-decor:hover, .App.light div.link-no-decor:hover, .App.dark div.link-no-decor:hover {
+.App.light a.post-user:hover,
+.App.dark a.post-user:hover,
+.App.dark a.link-no-decor:hover,
+.App.light a.link-no-decor:hover,
+.App.light div.link-no-decor:hover,
+.App.dark div.link-no-decor:hover {
   color: var(--social-primary);
   transition: 100ms ease-in-out;
 }
@@ -151,12 +162,6 @@ p.lead {
 @media screen and (max-width: 600px) {
   :root {
     font-size: 80%;
-  }
-}
-
-@media screen and (max-width: 465px) {
-  .post-user {
-    
   }
 }
 

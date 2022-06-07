@@ -148,13 +148,14 @@ const CommentForm = ({ post }) => {
         {!commentList
           ? null
           : commentList.map((commentItem) => (
-              <div
-                key={commentItem._id}
-                className="w-100 comments-card p-2"
-              >
+              <div key={commentItem._id} className="w-100 comments-card p-2">
                 <div className="d-flex justify-content-start align-items-center">
                   <Image
-                    src={commentItem.username === user.username ? user.profileImg : commentItem.profileImg}
+                    src={
+                      commentItem.username === user.username
+                        ? user.profileImg
+                        : commentItem.profileImg
+                    }
                     roundedCircle
                     width={30}
                     height={30}

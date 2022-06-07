@@ -15,7 +15,7 @@ import { getAuth, logoutFunc } from "redux-reducers";
 import { useToast } from "custom-hooks";
 import { useTheme } from "theme-context";
 import { DarkMode, LightMode } from "@mui/icons-material";
-import { logo, dummyProfile } from "assets";
+import { logo } from "assets";
 
 const NavigationTop = () => {
   const { theme, setTheme } = useTheme();
@@ -73,7 +73,11 @@ const NavigationTop = () => {
               </LinkContainer>
             )}
             {isAuth ? (
-              <Button variant="danger" onClick={logoutHandler} className="logout-btn">
+              <Button
+                variant="danger"
+                onClick={logoutHandler}
+                className="logout-btn"
+              >
                 Logout
               </Button>
             ) : (
@@ -91,7 +95,11 @@ const NavigationTop = () => {
             />
             <Button variant="outline-info">Search</Button>
           </Form>
-          <Button className="change-theme-btn" variant="outline-secondary mx-2" onClick={changeTheme}>
+          <Button
+            className="change-theme-btn"
+            variant="outline-secondary mx-2"
+            onClick={changeTheme}
+          >
             {theme === "dark" ? <DarkMode /> : <LightMode />}
           </Button>
           {isAuth && (

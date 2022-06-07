@@ -66,7 +66,7 @@ const ProfilePage = () => {
         showToast("error", error.message);
       }
     })();
-  }, [userPosts])
+  }, [userPosts]);
 
   const checkFollowed = () =>
     followers?.some((listUser) => listUser.username === user.username);
@@ -146,12 +146,8 @@ const ProfilePage = () => {
                 <span className="fw-bolder">
                   {userPostsLoading ? 0 : userPosts.length} Posts
                 </span>
-                <span className="fw-bolder">
-                  {followers?.length} Followers
-                </span>
-                <span className="fw-bolder">
-                  {following?.length} Following
-                </span>
+                <span className="fw-bolder">{followers?.length} Followers</span>
+                <span className="fw-bolder">{following?.length} Following</span>
               </p>
             </div>
           </div>

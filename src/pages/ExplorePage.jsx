@@ -26,17 +26,21 @@ const ExplorePage = () => {
   }, [token, dispatch]);
 
   useEffect(() => {
-    setExplorePosts([...posts].sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    ));
+    setExplorePosts(
+      [...posts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    );
   }, [token, posts]);
 
   return (
     <section className="social-main-content">
       <NavSide />
       <div className="posts-wrapper">
-        {postsLoading ? <div className="my-4 alert alert-primary">Loading...</div> : explorePosts.length > 0 &&
-          explorePosts.map((post) => <PostCard key={post._id} post={post} />)}
+        {postsLoading ? (
+          <div className="my-4 alert alert-primary">Loading...</div>
+        ) : (
+          explorePosts.length > 0 &&
+          explorePosts.map((post) => <PostCard key={post._id} post={post} />)
+        )}
       </div>
       <SuggestionList />
     </section>

@@ -6,7 +6,7 @@ import {
   updateUserProfileService,
   followUserService,
   unfollowUserService,
-  fetchAllUsersService
+  fetchAllUsersService,
 } from "./userServices";
 import {
   fetchPostsService,
@@ -21,7 +21,7 @@ import {
   commentOnPostService,
   deleteCommentService,
   editCommentService,
-  fetchSinglePostService
+  fetchSinglePostService,
 } from "./postsServices";
 
 export {
@@ -45,5 +45,5 @@ export {
   followUserService,
   unfollowUserService,
   fetchAllUsersService,
-  fetchSinglePostService
+  fetchSinglePostService,
 };

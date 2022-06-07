@@ -1,5 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import { HomePage, UserHome, LoginPage, SignupPage, InvalidPage, BookmarksPage, SinglePost, ProfilePage, ExplorePage } from "pages";
+import {
+  HomePage,
+  UserHome,
+  LoginPage,
+  SignupPage,
+  InvalidPage,
+  BookmarksPage,
+  SinglePost,
+  ProfilePage,
+  ExplorePage,
+} from "pages";
 import PrivateRoutes from "./PrivateRoutes";
 
 const SiteRoutes = () => {

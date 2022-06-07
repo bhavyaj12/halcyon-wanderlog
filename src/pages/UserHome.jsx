@@ -67,10 +67,17 @@ const UserHome = () => {
       <div className="posts-wrapper">
         <AddPost />
         <FilterButtons />
-        {postsLoading ? <div className="my-4 alert alert-info">Loading...</div> : postsOfFollowing.length > 0 ?
+        {postsLoading ? (
+          <div className="my-4 alert alert-info">Loading...</div>
+        ) : postsOfFollowing.length > 0 ? (
           postsOfFollowing.map((post) => (
             <PostCard key={post._id} post={post} />
-          )) : <div className="my-4 alert alert-danger">You have not added any posts</div>}
+          ))
+        ) : (
+          <div className="my-4 alert alert-danger">
+            You have not added any posts
+          </div>
+        )}
       </div>
       <SuggestionList />
     </section>

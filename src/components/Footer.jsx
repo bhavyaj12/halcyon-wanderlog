@@ -22,7 +22,11 @@ const Footer = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a href="https://www.linkedin.com/in/bhavya-joshi-438178184" target="_blank" className="nav-link px-2 text-muted">
+            <a
+              href="https://www.linkedin.com/in/bhavya-joshi-438178184"
+              target="_blank"
+              className="nav-link px-2 text-muted"
+            >
               Linkedin
             </a>
           </li>

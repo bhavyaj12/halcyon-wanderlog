@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { NavigationTop, Footer, Toast, PostModal, EditProfile } from "components";
+import {
+  NavigationTop,
+  Footer,
+  Toast,
+  PostModal,
+  EditProfile,
+} from "components";
 import { Routes } from "routes";
 import { useTheme } from "theme-context";
 import "./App.css";
@@ -13,13 +19,13 @@ const App = () => {
   }, [location]);
   return (
     <div className={`App ${theme}`}>
-        <NavigationTop />
-        <Toast />
-        <Routes />
-        <PostModal />
-        <Footer />
+      <NavigationTop />
+      <Toast />
+      <Routes />
+      <PostModal />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

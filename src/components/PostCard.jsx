@@ -26,7 +26,6 @@ import {
   DeleteOutlineIcon,
   EditIcon,
 } from "assets";
-import { useEffect } from "react";
 
 const PostCard = ({ post }) => {
   const { user, token } = useSelector(getAuth);

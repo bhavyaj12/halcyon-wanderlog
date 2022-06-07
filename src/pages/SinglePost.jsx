@@ -14,7 +14,7 @@ const SinglePost = () => {
   const { showToast } = useToast();
 
   const [singlePost, setSinglePost] = useState(null);
-  
+
   useEffect(() => {
     (async () => {
       try {
