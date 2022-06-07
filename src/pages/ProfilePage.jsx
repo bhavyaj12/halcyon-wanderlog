@@ -52,6 +52,9 @@ const ProfilePage = () => {
         showToast("error", error.message);
       }
     })();
+  }, [users, username]);
+
+  useEffect(() => {
     (async () => {
       try {
         const response = await dispatch(fetchUserPosts({ username: username }));
@@ -63,7 +66,7 @@ const ProfilePage = () => {
         showToast("error", error.message);
       }
     })();
-  }, [users, username]);
+  }, [userPosts])
 
   const checkFollowed = () =>
     followers?.some((listUser) => listUser.username === user.username);
