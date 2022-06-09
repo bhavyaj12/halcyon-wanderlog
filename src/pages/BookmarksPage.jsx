@@ -35,7 +35,7 @@ const BookmarksPage = () => {
           bookmarkedPosts.map((post) => <PostCard key={post._id} post={post} />)
         ) : (
           <div>
-            <div className="text-align-center m-5 px-4 w-100 alert alert-danger">
+            <div className="text-align-center m-5 px-4 alert alert-danger">
               You have no bookmarks. Bookmark posts from home feed.
             </div>
           </div>

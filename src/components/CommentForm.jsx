@@ -109,7 +109,8 @@ const CommentForm = ({ post }) => {
         <form className="d-flex justify-content-start align-items-center p-2">
           <textarea
             cols={60}
-            className="w-100 mx-2 comments-textarea"
+            className="w-100 mx-2 p-2 comments-textarea"
+            maxLength={2000}
             placeholder="Enter comment..."
             value={comment}
             onChange={(e) => setComment(e.target.value)}
@@ -165,7 +166,7 @@ const CommentForm = ({ post }) => {
                     @{commentItem.username}{" "}
                     <span className="post-date fw-normal mx-3">
                       {dayjs(new Date(commentItem.createdAt)).format(
-                        "HH:mm, DD/MM/YYYY"
+                        "DD/MM/YYYY"
                       )}
                     </span>
                   </h6>

@@ -169,14 +169,14 @@ const AddPost = ({ modal }) => {
           {addContent.length === 0 ? (
             isPostEditing ? (
               <button
-                className="btn btn-secondary btn-sm px-4 me-md-2"
+                className="btn btn-secondary btn-sm px-4"
                 disabled
               >
                 Save Post
               </button>
             ) : (
               <button
-                className="btn btn-secondary btn-sm px-4 me-md-2"
+                className="btn btn-secondary btn-sm px-4"
                 disabled
               >
                 Post
@@ -185,14 +185,14 @@ const AddPost = ({ modal }) => {
           ) : isPostEditing ? (
             <button
               onClick={editPostHandler}
-              className="btn btn-info btn-sm px-4 me-md-2"
+              className="btn btn-info btn-sm px-4"
             >
               Save Post
             </button>
           ) : (
             <button
               onClick={addPostHandler}
-              className="btn btn-info btn-sm px-4 me-md-2"
+              className="btn btn-info btn-sm px-4"
             >
               Post
             </button>
