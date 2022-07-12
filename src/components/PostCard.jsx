@@ -126,6 +126,15 @@ const PostCard = ({ post }) => {
     navigate(`/profile/${username}`);
   };
 
+  const shareHandler = async (_id) => {
+    const postUrl = "https://wanderlog-social.netlify.app/post/" + _id;
+    if ("clipboard" in navigator) {
+      showToast("success", "Copied to clipboard.");
+      return await navigator.clipboard.writeText(postUrl);
+    } else {
+      showToast("error", "Can't copy to clipboard.");
+  }
+
   return (
     <Link
       to={`/post/${_id}`}
@@ -264,7 +273,7 @@ const PostCard = ({ post }) => {
                 theme === "light" ? "icon-btn" : "icon-btn dark-icon-btn"
               }
             >
-              <ShareOutlinedIcon />
+              <ShareOutlinedIcon onClick={shareHandler} />
             </button>
           </div>
         </div>
