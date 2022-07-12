@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getAuth,
@@ -22,7 +21,6 @@ import {
   BookmarkBorderOutlinedIcon,
   BookmarkOutlinedIcon,
   ForumOutlinedIcon,
-  ShareOutlinedIcon,
   DeleteOutlineIcon,
   EditIcon,
 } from "assets";
@@ -257,16 +255,7 @@ const PostCard = ({ post }) => {
             )}
             <span className="mx-1"></span>
           </div>
-          <div className="flex-row-centre">
-            <button
-              type="button"
-              className={
-                theme === "light" ? "icon-btn" : "icon-btn dark-icon-btn"
-              }
-            >
-              <ShareOutlinedIcon />
-            </button>
-          </div>
+
         </div>
       </div>
     </Link>

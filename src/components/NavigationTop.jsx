@@ -2,8 +2,6 @@ import {
   Navbar,
   Container,
   Nav,
-  Form,
-  FormControl,
   Button,
   Image,
 } from "react-bootstrap";
@@ -86,15 +84,7 @@ const NavigationTop = () => {
               </LinkContainer>
             )}
           </Nav>
-          <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-info">Search</Button>
-          </Form>
+          
           <Button
             className="change-theme-btn"
             variant="outline-secondary mx-2"
