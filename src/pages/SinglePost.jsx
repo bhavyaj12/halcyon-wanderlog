@@ -26,7 +26,12 @@ const SinglePost = () => {
         showToast("error", "Can't fetch the post, try again later.");
       }
     })();
-  }, [posts, postId]);
+  }, [postId]);
+
+  useEffect(() => {
+    if (postId && posts)
+      setSinglePost(posts.filter((postItem) => postItem._id === postId)[0]);
+  }, [posts]);
 
   return (
     <div>
