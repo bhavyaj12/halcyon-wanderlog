@@ -7,6 +7,12 @@ import {
   postImg5,
   postImg6,
   dummyProfile,
+  userImg2,
+  userImg3,
+  userImg4,
+  userImg5,
+  userImg6,
+  userImg7,
 } from "assets";
 import { formatDate } from "../utils/authUtils";
 
@@ -39,8 +45,7 @@ export const posts = [
         text: "This is so good!",
         createdAt: "2021-09-18 21:15:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1506155260527915013/4vqOiEu7_400x400.jpg",
+        profileImg: userImg2,
       },
       {
         _id: uuid(),
@@ -48,8 +53,7 @@ export const posts = [
         text: "Really love your hard work.",
         createdAt: "2022-01-25 12:45:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://assets.reedpopcdn.com/horizon-forbidden-west-review-1644515572232.jpg/BROK/thumbnail/1200x1200/quality/100/horizon-forbidden-west-review-1644515572232.jpg",
+        profileImg: userImg7,
       },
     ],
   },
@@ -65,8 +69,7 @@ export const posts = [
     username: "bhavyajoshi",
     firstName: "Bhavya",
     lastName: "Joshi",
-    profileImg:
-      "https://pbs.twimg.com/profile_images/1506155260527915013/4vqOiEu7_400x400.jpg",
+    profileImg: userImg2,
     postImage: "",
     createdAt: "2019-11-14 20:05:00",
     updatedAt: formatDate(),
@@ -93,8 +96,7 @@ export const posts = [
     username: "bhavyajoshi",
     firstName: "Bhavya",
     lastName: "Joshi",
-    profileImg:
-      "https://pbs.twimg.com/profile_images/1506155260527915013/4vqOiEu7_400x400.jpg",
+    profileImg: userImg2,
     postImage: "",
     createdAt: "2022-01-10 02:19:00",
     updatedAt: formatDate(),
@@ -113,8 +115,7 @@ export const posts = [
         text: "Amazing!",
         createdAt: "2022-03-06 08:12:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://media-exp1.licdn.com/dms/image/C4E03AQFuF0si6WbHsw/profile-displayphoto-shrink_800_800/0/1594139517656?e=1660176000&v=beta&t=wN7_44ugIcbMnuFu0y186-P9XJpzJLdJD_6wpe9_NbU",
+        profileImg: userImg3,
       },
       {
         _id: uuid(),
@@ -122,8 +123,7 @@ export const posts = [
         text: "Thanks a lot for this great info, look forward to using it during my trip!",
         createdAt: "2022-05-13 13:17:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1506155260527915013/4vqOiEu7_400x400.jpg",
+        profileImg: userImg2,
       },
     ],
   },
@@ -139,8 +139,7 @@ export const posts = [
     username: "krutijoshi",
     firstName: "Kruti",
     lastName: "Joshi",
-    profileImg:
-      "https://media-exp1.licdn.com/dms/image/C4E03AQFuF0si6WbHsw/profile-displayphoto-shrink_800_800/0/1594139517656?e=1660176000&v=beta&t=wN7_44ugIcbMnuFu0y186-P9XJpzJLdJD_6wpe9_NbU",
+    profileImg: userImg3,
     postImage: postImg2,
     createdAt: "2022-04-15 12:45:00",
     updatedAt: formatDate(),
@@ -151,8 +150,7 @@ export const posts = [
         text: "Beautiful!",
         createdAt: "2022-04-18 22:35:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1422942795958980618/q3DuyOZ3_400x400.jpg",
+        profileImg: userImg4,
       },
       {
         _id: uuid(),
@@ -160,8 +158,7 @@ export const posts = [
         text: "What an incredible view.",
         createdAt: "2022-05-02 03:13:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1477337179709841411/IS_OEvzu_400x400.jpg",
+        profileImg: userImg6,
       },
     ],
   },
@@ -177,8 +174,7 @@ export const posts = [
     username: "krutijoshi",
     firstName: "Kruti",
     lastName: "Joshi",
-    profileImg:
-      "https://media-exp1.licdn.com/dms/image/C4E03AQFuF0si6WbHsw/profile-displayphoto-shrink_800_800/0/1594139517656?e=1660176000&v=beta&t=wN7_44ugIcbMnuFu0y186-P9XJpzJLdJD_6wpe9_NbU",
+    profileImg: userImg3,
     postImage: postImg3,
     createdAt: "2022-02-12 16:23:00",
     updatedAt: formatDate(),
@@ -189,8 +185,7 @@ export const posts = [
         text: "So jealous!",
         createdAt: "2022-06-02 02:14:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1506155260527915013/4vqOiEu7_400x400.jpg",
+        profileImg: userImg2,
       },
     ],
   },
@@ -205,8 +200,7 @@ export const posts = [
     username: "zendaya",
     firstName: "Zendaya",
     lastName: "Coleman",
-    profileImg:
-      "https://pbs.twimg.com/profile_images/1422942795958980618/q3DuyOZ3_400x400.jpg",
+    profileImg: userImg4,
     postImage: postImg4,
     createdAt: "2021-12-27 14:25:00",
     updatedAt: formatDate(),
@@ -217,8 +211,7 @@ export const posts = [
         text: "Such a nice photo!",
         createdAt: "2022-01-05 05:45:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1506155260527915013/4vqOiEu7_400x400.jpg",
+        profileImg: userImg2,
       },
       {
         _id: uuid(),
@@ -226,8 +219,7 @@ export const posts = [
         text: "Incredible view!",
         createdAt: "2022-02-12 19:04:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://media-exp1.licdn.com/dms/image/C4E03AQFuF0si6WbHsw/profile-displayphoto-shrink_800_800/0/1594139517656?e=1660176000&v=beta&t=wN7_44ugIcbMnuFu0y186-P9XJpzJLdJD_6wpe9_NbU",
+        profileImg: userImg3,
       },
     ],
   },
@@ -243,8 +235,7 @@ export const posts = [
     username: "zendaya",
     firstName: "Zendaya",
     lastName: "Coleman",
-    profileImg:
-      "https://pbs.twimg.com/profile_images/1422942795958980618/q3DuyOZ3_400x400.jpg",
+    profileImg: userImg4,
     postImage: "",
     createdAt: "2021-03-14 10:09:00",
     updatedAt: formatDate(),
@@ -255,8 +246,7 @@ export const posts = [
         text: "Great rec!",
         createdAt: "2021-04-07 15:48:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1506155260527915013/4vqOiEu7_400x400.jpg",
+        profileImg: userImg2,
       },
     ],
   },
@@ -272,8 +262,7 @@ export const posts = [
     username: "danabramov",
     firstName: "Dan",
     lastName: "Abramov",
-    profileImg:
-      "https://pbs.twimg.com/profile_images/1336281436685541376/fRSl8uJP_400x400.jpg",
+    profileImg: userImg5,
     postImage: "",
     createdAt: "2022-06-05 11:19:00",
     updatedAt: formatDate(),
@@ -290,8 +279,7 @@ export const posts = [
     username: "danabramov",
     firstName: "Dan",
     lastName: "Abramov",
-    profileImg:
-      "https://pbs.twimg.com/profile_images/1336281436685541376/fRSl8uJP_400x400.jpg",
+    profileImg: userImg5,
     postImage: "",
     createdAt: "2022-02-02 01:29:00",
     updatedAt: formatDate(),
@@ -302,8 +290,7 @@ export const posts = [
         text: "No!",
         createdAt: "2022-04-07 11:44:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://assets.reedpopcdn.com/horizon-forbidden-west-review-1644515572232.jpg/BROK/thumbnail/1200x1200/quality/100/horizon-forbidden-west-review-1644515572232.jpg",
+        profileImg: userImg7,
       },
     ],
   },
@@ -319,8 +306,7 @@ export const posts = [
     username: "andrewgarfield",
     firstName: "Andrew",
     lastName: "Garfield",
-    profileImg:
-      "https://pbs.twimg.com/profile_images/1477337179709841411/IS_OEvzu_400x400.jpg",
+    profileImg: userImg6,
     postImage: postImg5,
     createdAt: "2022-04-04 18:36:00",
     updatedAt: formatDate(),
@@ -331,8 +317,7 @@ export const posts = [
         text: "Amazing picture, will definitely visit soon!",
         createdAt: "2022-05-17 17:04:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://media-exp1.licdn.com/dms/image/C4E03AQFuF0si6WbHsw/profile-displayphoto-shrink_800_800/0/1594139517656?e=1660176000&v=beta&t=wN7_44ugIcbMnuFu0y186-P9XJpzJLdJD_6wpe9_NbU",
+        profileImg: userImg3,
       },
       {
         _id: uuid(),
@@ -340,8 +325,7 @@ export const posts = [
         text: "This looks breathtaking",
         createdAt: "2022-5-14 13:18:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1506155260527915013/4vqOiEu7_400x400.jpg",
+        profileImg: userImg2,
       },
     ],
   },
@@ -357,8 +341,7 @@ export const posts = [
     username: "andrewgarfield",
     firstName: "Andrew",
     lastName: "Garfield",
-    profileImg:
-      "https://pbs.twimg.com/profile_images/1477337179709841411/IS_OEvzu_400x400.jpg",
+    profileImg: userImg6,
     postImage: "",
     createdAt: "2022-03-06 12:26:00",
     updatedAt: formatDate(),
@@ -385,8 +368,7 @@ export const posts = [
     username: "aloysobeck",
     firstName: "Aloy",
     lastName: "Sobeck",
-    profileImg:
-      "https://assets.reedpopcdn.com/horizon-forbidden-west-review-1644515572232.jpg/BROK/thumbnail/1200x1200/quality/100/horizon-forbidden-west-review-1644515572232.jpg",
+    profileImg: userImg7,
     postImage: "",
     createdAt: "2022-05-14 09:28:00",
     updatedAt: formatDate(),
@@ -397,8 +379,7 @@ export const posts = [
         text: "Pretty iconic!",
         createdAt: "2022-05-29 20:03:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1422942795958980618/q3DuyOZ3_400x400.jpg",
+        profileImg: userImg4,
       },
     ],
   },
@@ -413,8 +394,7 @@ export const posts = [
     username: "aloysobeck",
     firstName: "Aloy",
     lastName: "Sobeck",
-    profileImg:
-      "https://assets.reedpopcdn.com/horizon-forbidden-west-review-1644515572232.jpg/BROK/thumbnail/1200x1200/quality/100/horizon-forbidden-west-review-1644515572232.jpg",
+    profileImg: userImg7,
     postImage: postImg6,
     createdAt: "2022-03-09 19:46:00",
     updatedAt: formatDate(),
@@ -425,8 +405,7 @@ export const posts = [
         text: "Must be so much fun!",
         createdAt: "2022-06-03 04:21:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1422942795958980618/q3DuyOZ3_400x400.jpg",
+        profileImg: userImg4,
       },
       {
         _id: uuid(),
@@ -442,8 +421,7 @@ export const posts = [
         text: "Wish I could do this still",
         createdAt: "2022-03-10 19:30:00",
         updatedAt: formatDate(),
-        profileImg:
-          "https://pbs.twimg.com/profile_images/1506155260527915013/4vqOiEu7_400x400.jpg",
+        profileImg: userImg2,
       },
     ],
   },
